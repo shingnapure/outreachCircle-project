@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "outreachCircle-project": {
+    "project": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/outreachCircle-project",
+            "outputPath": "dist/project",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -61,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "outreachCircle-project:build"
+            "browserTarget": "project:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "outreachCircle-project:build:production"
+              "browserTarget": "project:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "outreachCircle-project:build"
+            "browserTarget": "project:build"
           }
         },
         "test": {
@@ -109,16 +109,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "outreachCircle-project:serve"
+            "devServerTarget": "project:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "outreachCircle-project:serve:production"
+              "devServerTarget": "project:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "outreachCircle-project"
+  "defaultProject": "project"
 }
