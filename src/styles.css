@@ -7,8 +7,14 @@
     box-sizing: border-box;
 }
 
-html , html{
+html {
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
+    background-color: #e8ebee;
 }
 
+body {
+     width: 90%;
+     background-color: #fff;
+     margin: auto;
+}
