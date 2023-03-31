@@ -7,12 +7,12 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { SidebarComponent } from './component/sidebar/sidebar.component';
-import { MainSectionComponent } from './component/main-section/main-section.component';
 import { FilterSearchComponent } from './component/filter-search/filter-search.component';
-import { OutreachcircleListComponent } from './component/outreachcircle-list/outreachcircle-list.component';
 import { OutreachcircleListItemComponent } from './component/outreachcircle-list-item/outreachcircle-list-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GraphQLModule } from './graphql.module';
+import { UserComponent } from './pages/user/user.component';
+import { AllOutreachCircleComponent } from './pages/all-outreach-circle/all-outreach-circle.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +21,10 @@ import { GraphQLModule } from './graphql.module';
     HomeComponent,
     NavbarComponent,
     SidebarComponent,
-    MainSectionComponent,
     FilterSearchComponent,
-    OutreachcircleListComponent,
-    OutreachcircleListItemComponent
+    OutreachcircleListItemComponent,
+    UserComponent,
+    AllOutreachCircleComponent
   ],
   imports: [
     BrowserModule,
