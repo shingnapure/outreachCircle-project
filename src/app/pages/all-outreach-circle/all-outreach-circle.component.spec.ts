@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OutreachcircleListComponent } from './outreachcircle-list.component';
+import { AllOutreachCircleComponent } from './all-outreach-circle.component';
 
-describe('OutreachcircleListComponent', () => {
-  let component: OutreachcircleListComponent;
-  let fixture: ComponentFixture<OutreachcircleListComponent>;
+describe('AllOutreachCircleComponent', () => {
+  let component: AllOutreachCircleComponent;
+  let fixture: ComponentFixture<AllOutreachCircleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OutreachcircleListComponent ]
+      declarations: [ AllOutreachCircleComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OutreachcircleListComponent);
+    fixture = TestBed.createComponent(AllOutreachCircleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
