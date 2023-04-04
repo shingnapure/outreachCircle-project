@@ -1,9 +1,7 @@
 .title{
-    /* position: absolute; */
-    /* width: 19rem; */
     height: 3rem;
     padding-left: 1.9375rem;
-    /* padding-top: 6.5rem; */
+    padding-top: 1.75rem;
     font-style: normal;
     font-weight: 600;
     font-size: 2.125rem;
@@ -12,12 +10,9 @@
 }
 
 .sub-title{
-    /* position: absolute; */
-    /* width: 21.8125rem; */
     height: 1.75rem;
     padding-left: 1.9375rem;
-    /* padding-top: 10rem; */
-    /* padding-right: 42.4375; */
+    padding-top: 2.5rem;
     color: #777777;
     line-height: 140%;
     letter-spacing: 0.0015em;
