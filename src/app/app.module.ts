@@ -17,6 +17,8 @@ import { LoginFormComponent } from './component/login-form/login-form.component'
 import { FormsModule } from '@angular/forms';
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { SkeletonComponent } from './skeleton/skeleton.component';
+import { CookieService } from 'ngx-cookie-service';
+import { IsloggedService } from './services/islogged.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,7 @@ import { SkeletonComponent } from './skeleton/skeleton.component';
     FormsModule,
     NgxSkeletonLoaderModule
   ],
-  providers: [],
+  providers: [CookieService , IsloggedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
