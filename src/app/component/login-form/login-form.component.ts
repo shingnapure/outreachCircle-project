@@ -62,12 +62,13 @@ export class LoginFormComponent implements OnInit {
           } , 1000)
         },
         (error) => {
+          this.loading = false
+          this.error = true
           if(error.message.includes('email id')){
             this.emailError = 'Email address does not exist. Do you want to Sign-up?'
-          }else if(error.message.includes('')){
+          }else if(error.message.includes('invalid password')){
             this.passwordError = 'The password you entered is invalid. Please try again.'
           }
-          this.error = true
         }
       );
   }
