@@ -1,67 +1,30 @@
 import { Injectable } from '@angular/core';
-import { Apollo, gql } from 'apollo-angular';
-import { CookieService } from 'ngx-cookie-service';
-import { Observable } from 'rxjs';
+import { Apollo} from 'apollo-angular';
 
-const landing=gql`
-query outreachCirclesByLoggedInUser($input: AllOutreachCirclesInput!) {
-  outreachCirclesByLoggedInUser(input: $input) {
-    total
-    items {
-      id
-      name
-      city
-      state
-      code {
-        value
-        __typename
-      }
-      logo {
-        id
-        url
-        __typename
-      }
-      status {
-        createdAndActivate
-        setup {
-          isAudienceCreated
-          isActionCreated
-          hasSupporter
-          __typename
-        }
-        __typename
-      }
-      supporterCount
-      actionCount
-      groupsCount
-      aliasCount
-      activeSupportersCount
-      liveActionsCount
-      __typename
-    }
-    __typename
-  }
-}
-
-`
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataService {
   
-    constructor(private apollo:Apollo , private cookies : CookieService) { }
+    constructor(private apollo:Apollo) { }
 
 
-    getData(variable){
+    getData(query , variables , context = {}){
       return this.apollo.query<any>({
-        query:landing,
-        context:{
-          headers: {Authorization: this.cookies.get('_vc_token')}
-        },
-        variables : variable
+        query,
+        context ,
+        variables
       })
     }
+    
 
+    setData(data , variables){
+      return this.apollo.mutate<any>({
+        mutation : data,
+        variables
+      })
+    }
     
 
 
