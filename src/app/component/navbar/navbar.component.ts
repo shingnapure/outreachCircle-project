@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Apollo } from 'apollo-angular';
-import userByToken from 'src/app/graphql/userByToken.query';
+import {userByToken} from 'src/app/graphql/userByToken.query';
+import { DataService } from 'src/app/services/data.service';
 
 interface userToken{
   userByToken : {
@@ -19,19 +19,19 @@ interface userToken{
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private apollo : Apollo) { }
+  constructor(private dataservice : DataService) { }
+  
+  token = { token : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVhOTExZDM5LWNkY2UtNDdmOS05MGM4LTNmZjBiYWU5NTI3MyIsImlhdCI6MTY4MDA3MzM2Nn0.TGigrgs7C6RNRbBWF54j24nwsP1d5XVcsUvxujVbOJc"}
 
   ngOnInit(): void {
 
-    this.apollo.query<userToken>({
-      query : userByToken,
-      variables : {
-        "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVhOTExZDM5LWNkY2UtNDdmOS05MGM4LTNmZjBiYWU5NTI3MyIsImlhdCI6MTY4MDA3MzM2Nn0.TGigrgs7C6RNRbBWF54j24nwsP1d5XVcsUvxujVbOJc"
-      }
-    }).subscribe((res)=>{
-       console.log(res.data.userByToken)
+    this.dataservice.getData(userByToken , this.token).subscribe((res)=>{
+      console.log('comming form navbar',res)
     })
+    
 
+
+    
   }
 
 }

@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Apollo } from 'apollo-angular';
 import { CookieService } from 'ngx-cookie-service';
 import { Userlogin } from 'src/app/graphql/graphql.mutation';
+import { DataService } from 'src/app/services/data.service';
 
 interface userLogin {
   login: {
@@ -25,7 +25,7 @@ interface userLogin {
 
 
 export class LoginFormComponent implements OnInit {
-  constructor(private apollo: Apollo , private cookies : CookieService , private route : Router) {}
+  constructor(private cookies : CookieService , private route : Router , private dataService : DataService) {}
 
   ngOnInit(): void {}
 
@@ -43,17 +43,13 @@ export class LoginFormComponent implements OnInit {
 
   handleForm() {
     this.loading = true;
-    this.apollo
-      .mutate<userLogin>({
-        mutation: Userlogin,
-        variables: {
-          user: {
-            username: this.loginForm.value.username,
-            password: this.loginForm.value.password,
-          },
-        },
-      })
-      .subscribe(
+      let data =  {
+        user: {
+        username: this.loginForm.value.username,
+        password: this.loginForm.value.password,
+        }
+      }
+    this.dataService.setData(Userlogin , data).subscribe(
         ({data}) => {
           this.loadingImg = "✓"
           setTimeout(()=>{

@@ -1,6 +1,6 @@
 import { gql } from "apollo-angular";
 
-const userByToken = gql`
+export const userByToken = gql`
 query userByToken($token: String!) {
     userByToken(token: $token) {
       id
@@ -15,4 +15,46 @@ query userByToken($token: String!) {
     }
   }`
 
-  export default userByToken 
+
+export const landing =gql`
+query outreachCirclesByLoggedInUser($input: AllOutreachCirclesInput!) {
+  outreachCirclesByLoggedInUser(input: $input) {
+    total
+    items {
+      id
+      name
+      city
+      state
+      code {
+        value
+        __typename
+      }
+      logo {
+        id
+        url
+        __typename
+      }
+      status {
+        createdAndActivate
+        setup {
+          isAudienceCreated
+          isActionCreated
+          hasSupporter
+          __typename
+        }
+        __typename
+      }
+      supporterCount
+      actionCount
+      groupsCount
+      aliasCount
+      activeSupportersCount
+      liveActionsCount
+      __typename
+    }
+    __typename
+  }
+}
+
+`
+

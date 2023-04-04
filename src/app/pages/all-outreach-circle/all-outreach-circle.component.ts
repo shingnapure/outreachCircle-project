@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { landing } from 'src/app/graphql/userByToken.query';
 import { DataService } from 'src/app/services/data.service';
 
 
@@ -11,10 +13,10 @@ import { DataService } from 'src/app/services/data.service';
 export class AllOutreachCircleComponent implements OnInit {
   outercircleList : [];
 
-  constructor(private dataService : DataService){
+  constructor(private dataService : DataService , private cookies : CookieService){
 
   }
-  var = { input : {
+  val = { input : {
     skip : 0,
     limit : 100,
     filter : {
@@ -23,8 +25,10 @@ export class AllOutreachCircleComponent implements OnInit {
 
   fetching = true;
   ngOnInit(){
-    console.log(this.dataService)
-    this.dataService.getData(this.var).subscribe((val)=>{
+    
+    this.dataService.getData(landing , this.val , {
+      headers: {Authorization: this.cookies.get('_vc_token')}
+    }).subscribe((val)=>{
       this.fetching = false
       this.outercircleList=val.data.outreachCirclesByLoggedInUser.items
     })
