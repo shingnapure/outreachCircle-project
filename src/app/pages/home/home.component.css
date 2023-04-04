@@ -1,8 +1,18 @@
-.container > div:last-child{
+/* .container > div:last-child{
     display: flex;
     border: 1px solid black;
+
 }
 
 .container > div:last-child > div {
     border: 1px solid black;
+} */
+.main-section{
+    display: flex;
+
+    /* grid-template-columns: 4.6875rem auto; */
+    /* border: solid 1px red; */
+}
+.body{
+    width: 72rem;;
 }

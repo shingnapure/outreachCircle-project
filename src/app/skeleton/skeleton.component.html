@@ -1,0 +1,36 @@
+<div class="skeleton-border" *ngFor="let i of arr">
+  <div>
+    <ngx-skeleton-loader
+      appearance="rectangle"
+      [theme]="{ width: '13rem', height: '9.75rem' }"
+    >
+    </ngx-skeleton-loader>
+  </div>
+
+  <div>
+    <div>
+      <div>
+        <ngx-skeleton-loader
+          appearance="rectangle"
+          [theme]="{ width: '19.625rem', height: '0.625rem' }"
+        >
+        </ngx-skeleton-loader>
+      </div>
+      <div>
+        <ngx-skeleton-loader
+          appearance="rectangle"
+          [theme]="{ width: '9.625rem', height: '0.625rem' }"
+        >
+        </ngx-skeleton-loader>
+      </div>
+    </div>
+    <div class="skeleton-rectangel-bottom">
+      <ngx-skeleton-loader
+        appearance="rectangle"
+        [theme]="{ width: '46.125rem', height: '0.625rem' }"
+      >
+      </ngx-skeleton-loader>
+    </div>
+  </div>
+</div>
+
