@@ -1,3 +1,19 @@
-/* main{
-    width: 74rem
-} */
+.title{
+    height: 3rem;
+    padding-left: 1.9375rem;
+    padding-top: 1.75rem;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.125rem;
+    line-height: 140%;
+    letter-spacing: 0.0025em;
+}
+
+.sub-title{
+    height: 1.75rem;
+    padding-left: 1.9375rem;
+    padding-top: 2.5rem;
+    color: #777777;
+    line-height: 140%;
+    letter-spacing: 0.0015em;
+}
