@@ -1,0 +1,79 @@
+<p>Login with your email address...</p>
+<form (ngSubmit)="handleForm()" #loginForm="ngForm">
+  <div
+    class="form-control-input"
+    [ngClass]="{
+      'show-error-msg': (emailInput.invalid && emailInput.value) || email == ''
+    }"
+  >
+    <label> email address </label>
+    <div class="input-text">
+      <input
+        type="email"
+        placeholder="Enter your email address"
+        ngModel
+        #emailInput="ngModel"
+        name="username"
+        [(ngModel)]="email"
+        email
+        required
+      />
+      <img
+        src="../../../assets/images/crossIcon.svg"
+        (click)="handleClose(emailInput)"
+        width="15px"
+        height="15px"
+        *ngIf="(emailInput.value != '' && emailInput.dirty) || email == '' "
+      />
+    </div>
+
+    <div class="input-bottom-line"></div>
+    <div>
+      <small *ngIf="emailInput.invalid && emailInput.value"
+        >Invalid email address</small
+      >
+
+      <small *ngIf="(email == '') || error">{{ emailError }}</small>
+    </div>
+  </div>
+  <div
+    class="form-control-input"
+    [ngClass]="{ 'show-error-msg': password == '' }"
+  >
+    <label> password </label>
+    <div class="input-text">
+      <input
+        type="text"
+        placeholder="Enter password"
+        ngModel
+        name="password"
+        required
+        #passwordInput="ngModel"
+        [(ngModel)]="password"
+      />
+      <img
+        src="../../../assets/images/crossIcon.svg"
+        (click)="handleClose(passwordInput)"
+        width="15px"
+        height="15px"
+        *ngIf="
+          (passwordInput.value != '' && passwordInput.dirty) || password == ''
+        "
+      />
+    </div>
+    <div class="input-bottom-line"></div>
+    <div>
+      <small *ngIf="(password == '') || error">{{ passwordError }}</small>
+    </div>
+  </div>
+  <div>
+    <input
+      type="submit"
+      value="{{ loading ? loadingImg : 'Login with email'}}"
+      class="login-btn"
+      [disabled]="!loginForm.valid"
+      [ngClass]="{ 'disbled-btn': !loginForm.valid }"
+    />
+    <span> <a href="">Can't Login?</a></span>
+  </div>
+</form>
