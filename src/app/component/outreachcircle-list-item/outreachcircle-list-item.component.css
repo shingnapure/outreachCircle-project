@@ -47,10 +47,32 @@
   height: 2rem;
   width: 2rem;
   border-radius: 50%;
-  background-color: #b2dce5;
+  background-color: #d5e9ed;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+
+.oc-options:hover{
+  background-color: teal;
+}
+
+.oc-options > div{
+  display: flex;
+  flex-direction: column;
+  gap:1.5px;
+}
+
+.oc-options > div span{
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.oc-options:hover > div span{
+  background-color: #fff;
 }
 .location {
   display: flex;

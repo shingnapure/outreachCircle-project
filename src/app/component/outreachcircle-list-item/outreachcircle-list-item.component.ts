@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Apollo, gql} from "apollo-angular"
+import { CookieService } from 'ngx-cookie-service';
 
 
 const landing=gql`
@@ -53,14 +54,14 @@ export class OutreachcircleListItemComponent implements OnInit {
 
 data:[]=[]
 fetching:boolean=false
-  constructor(private apollo:Apollo) { }
+  constructor(private apollo:Apollo , private cookies : CookieService) { }
 
   ngOnInit(){
     this.fetching=true
     this.apollo.watchQuery<any>({
       query:landing,
       context:{
-        headers: {Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE0NWM4MmE2LTZhNGItNGUwNS04OWIxLTlkYTA1YzVmNGQxYSIsImlhdCI6MTY4MDM1NjQ2OX0._tWUxz4mmin2X64oeW-psf2Ecf7pNVJCCH0bSb0rR_I"}
+        headers: {Authorization: this.cookies.get('_vc_token')}
       },
       variables:{
         "input": {

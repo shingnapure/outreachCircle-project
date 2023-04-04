@@ -4,12 +4,14 @@ import { AllOutreachCircleComponent } from './pages/all-outreach-circle/all-outr
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { UserComponent } from './pages/user/user.component';
+import { IsloggedService } from './services/islogged.service';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: 'user',
     component: UserComponent,
+    canActivate : [IsloggedService],
     children: [
       {
         path: 'home',

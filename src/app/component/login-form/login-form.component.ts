@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Apollo } from 'apollo-angular';
+import { CookieService } from 'ngx-cookie-service';
 import { Userlogin } from 'src/app/graphql/graphql.mutation';
 
 interface userLogin {
   login: {
-    token: String;
+    token: string;
     user: {
       id: String;
       username: String;
@@ -23,7 +25,7 @@ interface userLogin {
 
 
 export class LoginFormComponent implements OnInit {
-  constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo , private cookies : CookieService , private route : Router) {}
 
   ngOnInit(): void {}
 
@@ -52,9 +54,12 @@ export class LoginFormComponent implements OnInit {
         },
       })
       .subscribe(
-        (res) => {
-          console.log(res);
+        ({data}) => {
           this.loadingImg = "✓"
+          setTimeout(()=>{
+            this.cookies.set('_vc_token' , data.login.token)
+            this.route.navigateByUrl('/user/home')
+          } , 1000)
         },
         (error) => {
           if(error.message.includes('email id')){
