@@ -1,0 +1,49 @@
+.navbar{
+    box-sizing: border-box;
+    /* position: absolute; */
+    width: 82.5rem;
+    height: 4.75rem;
+    background: #FEFDF7;
+    border: 1px solid #D6D6D6;
+}
+
+.brand{
+    position: absolute;
+    width: 11.31rem;
+    height: 2.18rem;
+    padding-top: 1rem;
+    padding-left: 1.37rem;
+}
+
+.user-logo{
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    left: 63rem;
+    right: 14.43rem;
+    top: 1rem;
+}
+
+.name{
+    position: absolute;
+    width: 16rem;
+    height: 1.37rem;
+    left: 66.125rem;
+    padding-top: 1rem;
+    color: #2A2A2A;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.email{
+    position: absolute;
+    width: 16rem;
+    height: 1.37rem;
+    left: 66.125rem;
+    padding-top: 2.0625rem;
+    color: #777777;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.875rem;
+}
