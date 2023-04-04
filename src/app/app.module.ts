@@ -15,6 +15,8 @@ import { UserComponent } from './pages/user/user.component';
 import { AllOutreachCircleComponent } from './pages/all-outreach-circle/all-outreach-circle.component';
 import { LoginFormComponent } from './component/login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
+import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
+import { SkeletonComponent } from './skeleton/skeleton.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     OutreachcircleListItemComponent,
     UserComponent,
     AllOutreachCircleComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    SkeletonComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     HttpClientModule,
     GraphQLModule,
-    FormsModule
+    FormsModule,
+    NgxSkeletonLoaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

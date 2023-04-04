@@ -1,0 +1,83 @@
+
+<div *ngIf="!fetching">
+<div class="outer-div" *ngFor="let i of data">
+    <div class="logo">
+      <img
+        class="logo-img"
+        src="https://client.acarahealthcare.in/assets/svg/outreach-circle-logo-placeholder2.svg"
+        alt="logo"
+      />
+    </div>
+  
+    <div class="meta-info">
+      <div class="oc">
+        <div>
+          <p class="oc-name">{{i.name}}</p>
+          <div class="location" *ngIf="(i.state!==null) && (i.city!==null) ">
+            <img src="../../../assets/Icon.png" alt="">
+            <p>{{i.city}}, {{i.state}}</p>
+          </div>
+        </div>
+
+        <div class="oc-options">
+          <img  src="../../../assets/Shape.png" alt="shape">
+        </div>
+      </div>
+     
+      
+      <div class="oc-type">
+         <div class="oc-type-contents">
+            <div class="oc-type-value">
+                <img class="oc-type-logo" src="../../../assets/Supporter.png" alt="supporter">
+                <p class="oc-type-value-count">{{i.supporterCount}}</p>
+            </div>
+            <div class="oc-type-value-category">
+                <p class="oc-type-value-name">Supporters</p>
+            </div>
+         </div>
+
+         <div class="vertical"></div>
+
+         <div class="oc-type-contents">
+            <div class="oc-type-value">
+                <img class="oc-type-logo" src="../../../assets/Action.png" alt="supporter">
+                <p class="oc-type-value-count">{{i.actionCount}}</p>
+            </div>
+            <div class="oc-type-value-category">
+                <p  class="oc-type-value-name">Actions</p>
+            </div>
+         </div>
+
+         <div class="vertical"></div>
+
+         <div class="oc-type-contents">
+            <div class="oc-type-value">
+                <img class="oc-type-logo" src="../../../assets//Link.png" alt="supporter">
+                <p class="oc-type-value-count">{{i.aliasCount}}</p>
+            </div>
+            <div class="oc-type-value-category">
+                <p class="oc-type-value-name">Links</p>
+            </div>
+         </div>
+         
+         <div class="vertical"></div>
+
+         <div class="oc-type-contents">
+            <div class="oc-type-value">
+                <img class="oc-type-logo" src="../../../assets/Group.png" alt="supporter">
+                <p class="oc-type-value-count">{{i.groupsCount}}</p>
+            </div>
+            <div class="oc-type-value-category">
+                <p class="oc-type-value-name">Groups</p>
+            </div>
+         </div>
+      </div>
+    </div>
+</div>
+  
+</div>
+
+<div *ngIf="fetching">
+<app-skeleton></app-skeleton>
+</div>
+

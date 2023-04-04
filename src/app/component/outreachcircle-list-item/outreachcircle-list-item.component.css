@@ -1,0 +1,127 @@
+.outer-div {
+  height: 9.875rem;
+  /* width: 60%; */
+  border-radius: 5px;
+  border: 1px solid #d6d6d6;
+  margin-top: 1rem;
+  display: flex;
+}
+.logo {
+  width: 13rem;
+  height: 9.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #cfeaef;
+}
+.logo-img {
+  height: 6.5rem;
+  width: 6.5rem;
+}
+.meta-info {
+  height: 7.875rem;
+  width: 100%;
+  left: 1rem;
+  margin-top: 1rem;
+  padding-right: 1rem;
+  /* border: 1px solid #d6d6d6; */
+}
+.oc-name {
+  height: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 140%;
+  color: #f05c40;
+}
+.oc-name:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.oc {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 1rem;
+}
+.oc-options {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background-color: #b2dce5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.location {
+  display: flex;
+  margin-top: 0.5rem;
+}
+.location > p {
+  margin-left: 0.5rem;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.001em;
+  text-align: left;
+  color: #979797;
+}
+.oc-type {
+  display: flex;
+  margin-top: 0.5rem;
+  justify-content: space-around;
+}
+.oc-type-value {
+  display: flex;
+  align-items: center;
+  /* max-width: 2rem; */
+}
+.oc-type-contents {
+  padding: 0.5rem;
+  /* border: solid 1px red; */
+}
+.oc-type-contents:hover {
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.vertical {
+  height: 0px;
+  margin-top: 26px;
+  width: 52px;
+  border-radius: nullpx;
+  border: 1px solid #d8d8d8;
+  transform: rotate(90deg);
+}
+.oc-type-value-count {
+  height: 34px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 140%;
+  text-align: center;
+  color: #2a2a2a;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.oc-type-value-name {
+  height: 22px;
+  left: calc(50% - 84px / 2 - 197px);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: 0.0015em;
+  color: #2a2a2a;
+}
+.oc-type-logo {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 0.5rem;
+  left: 0px;
+  top: 0px;
+  border-radius: 0px;
+}
+.oc-type-value-category {
+  display: flex;
+  justify-content: center;
+}
