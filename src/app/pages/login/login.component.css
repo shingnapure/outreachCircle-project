@@ -3,9 +3,66 @@
     grid-template-columns: 3fr 2fr;
     min-height: 100vh;
 }
+.form-login-section {
+    display: grid;
+    grid-template-rows: 2.1rem 3.7rem 4.3rem 2.8rem 1fr;
+    grid-row-gap: .9rem;
+    padding:2.5rem 23%;
+}
+
+.form-login--link{
+    display: flex;
+    justify-content: flex-end;
+    color: #666;
+}
+
+.form-login--header{
+    font-size: 2.2rem;
+    color: #2a2a2a;
+    font-weight: 600;
+}
+
+.seprator{
+    display: grid;
+    grid-template-columns: 1fr 2.2rem 1fr;
+    align-items: center;
+    height: 0;
+}
+
+.seprator-line {
+    height: 2px;
+    border-top: 1px solid #d6d6d6;
+}
+
+.seprator-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d6d6d6;
+    clip-path: circle(50% at 50% 50%);
+    height: 1.8rem;
+    font-weight: 700;
+    
+}
+
+.seprator-text > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    background-color: #fff;
+    clip-path: circle(90% at circle);
+    border-radius: 50%;
+    height: 160%;
+    width: 82%;
+    color: #666;
+
+}
+
+
 
 .demo-section{
-    padding: 40px;
+    padding: 2.5rem;
     background-color: #f3f6f9;
     display: flex;
     flex-direction: column;
@@ -53,4 +110,8 @@
     padding: 1.8rem 0;
     text-align: center;
     line-height: 1.6rem;
+}
+
+a{
+    color : teal;
 }

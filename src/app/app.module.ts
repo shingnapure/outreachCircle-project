@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { GraphQLModule } from './graphql.module';
 import { UserComponent } from './pages/user/user.component';
 import { AllOutreachCircleComponent } from './pages/all-outreach-circle/all-outreach-circle.component';
+import { LoginFormComponent } from './component/login-form/login-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { AllOutreachCircleComponent } from './pages/all-outreach-circle/all-outr
     FilterSearchComponent,
     OutreachcircleListItemComponent,
     UserComponent,
-    AllOutreachCircleComponent
+    AllOutreachCircleComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { AllOutreachCircleComponent } from './pages/all-outreach-circle/all-outr
     BrowserAnimationsModule,
     HttpClientModule,
     GraphQLModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

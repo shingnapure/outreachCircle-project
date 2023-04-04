@@ -1,0 +1,128 @@
+p{
+    color : #2A2A2A;
+    font-weight: 400;
+    line-height: 1.3rem;
+    margin-bottom: 1.5rem;
+
+}
+
+form {
+     display: flex;
+     flex-direction: column;
+     gap : 2rem;
+     color: #777777;
+}
+
+form > div {
+     display: flex;
+     flex-direction: column;
+     
+}
+
+label {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 10px;
+    color: #777;
+
+}
+
+input {
+    border: none;
+    padding: 10px 10px 5px 0;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    line-height: 1.3rem;
+}
+
+input:focus {
+    outline: none;
+}
+
+.input-bottom-line{
+    background-color: #979797;
+    height: 1px;
+}
+
+
+.form-control-input:focus-within label{
+    color: #2493af;
+}
+
+.form-control-input:focus-within .input-bottom-line{
+    background-color: teal;
+    height: 2px;
+    margin: auto;
+    animation: line .2s ease-out forwards;
+}
+
+
+.input-text{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-text input{
+    flex: 1;
+}
+
+.input-text img {
+    cursor: pointer;
+}
+
+@keyframes line{
+    from {
+        width: 0;
+    }to{
+        width: 100%;
+    }
+}
+
+
+::placeholder{
+    color:#D6D6D6;
+}
+
+
+
+.login-btn{
+    background: teal;
+    border-radius: 2px;
+    color: #fff;
+    border: none;
+    height: 2.8rem;
+    font-size: 17px;
+    margin-top: 3.1rem;
+    cursor: pointer;
+    
+}
+
+.disbled-btn.login-btn{
+    background: #D6D6D6;
+
+}
+
+span{
+    text-align: end;
+    padding: .5rem;
+}
+
+
+.show-error-msg{
+    color: red;
+}
+
+small {
+     color : red;
+}
+
+.form-control-input.show-error-msg label{
+    color: red;
+}
+
+.form-control-input.show-error-msg .input-bottom-line{
+    background-color: red;
+}
+
