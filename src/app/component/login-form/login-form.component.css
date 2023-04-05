@@ -72,15 +72,6 @@ input:focus {
     cursor: pointer;
 }
 
-@keyframes line{
-    from {
-        width: 0;
-    }to{
-        width: 100%;
-    }
-}
-
-
 ::placeholder{
     color:#D6D6D6;
 }
@@ -126,3 +117,10 @@ small {
     background-color: red;
 }
 
+@keyframes line{
+    from {
+        width: 0;
+    }to{
+        width: 100%;
+    }
+}

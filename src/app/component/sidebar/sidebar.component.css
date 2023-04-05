@@ -1,8 +1,8 @@
 .sidebar{
     background: #F5F5F5;
-    /* position: absolute; */
-    width: 13.75rem;
-    height: 137.5rem;
+    position: fixed;
+    width: 14rem;
+    height: 100vh;
     top: 4.75rem;
 }
 

@@ -1,8 +1,12 @@
-<div class="container">
-  <div class="search">
+<div class="container-filter">
+  <button class="search" mat-button [matMenuTriggerFor]="menu">
     <img src="../../../assets/images/search.png" />
     <input class="input" type="search" placeholder="Search" />
-  </div>
+  </button>  
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+  </mat-menu>
   <div class="filter">
     <button>
       <span>Filter by State</span>

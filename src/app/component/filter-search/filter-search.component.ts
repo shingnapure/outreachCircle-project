@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatMenuTrigger } from '@angular/material/menu';
 @Component({
   selector: 'app-filter-search',
   templateUrl: './filter-search.component.html',
@@ -10,6 +10,13 @@ export class FilterSearchComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  
+  @ViewChild('MatMenuTrigger') trigger: MatMenuTrigger;
+
+  someMethod() {
+    this.trigger.openMenu();
   }
 
 }

@@ -56,9 +56,7 @@
         (click)="handleClose(passwordInput)"
         width="15px"
         height="15px"
-        *ngIf="
-          (passwordInput.value != '' && passwordInput.dirty) || password == ''
-        "
+        *ngIf="(passwordInput.value != '' && passwordInput.dirty) || password == ''"
       />
     </div>
     <div class="input-bottom-line"></div>
