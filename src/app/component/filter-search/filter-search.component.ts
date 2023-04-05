@@ -12,4 +12,7 @@ export class FilterSearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  search(){
+
+  }
 }

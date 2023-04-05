@@ -1,18 +1,11 @@
-/* .container > div:last-child{
-    display: flex;
-    border: 1px solid black;
 
-}
-
-.container > div:last-child > div {
-    border: 1px solid black;
-} */
 .main-section{
     display: flex;
+    margin-top: 4.75rem;
 
-    /* grid-template-columns: 4.6875rem auto; */
-    /* border: solid 1px red; */
 }
 .body{
-    width: 72rem;;
+    width: 72rem;
+    margin-left: 14rem;
+    padding  : 2rem;
 }
