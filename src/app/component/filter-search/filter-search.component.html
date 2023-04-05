@@ -1,7 +1,11 @@
-<div class="container">
-  <div class="search">
+<div class="container-filter">
+  <button class="search" mat-button [matMenuTriggerFor]="menu">
     <img src="../../../assets/images/search.png" />
     <input class="input" type="search" placeholder="Search" />
+
+  </button>  
+  
+
     <!-- <form (ngSubmit)="search()">
         <div class="form">
           <div class="search-title">
@@ -27,6 +31,7 @@
         </div>
    </form> -->
   </div>
+
   <div class="filter">
     <button>
       <span>Filter by State</span>

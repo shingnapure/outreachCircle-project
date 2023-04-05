@@ -43,6 +43,7 @@ export class LoginFormComponent implements OnInit {
 
   handleForm() {
     this.loading = true;
+    this.loadingImg = 'loading..'
       let data =  {
         user: {
         username: this.loginForm.value.username,
@@ -62,7 +63,7 @@ export class LoginFormComponent implements OnInit {
           this.error = true
           if(error.message.includes('email id')){
             this.emailError = 'Email address does not exist. Do you want to Sign-up?'
-          }else if(error.message.includes('invalid password')){
+          }else if(error.message.includes('password')){
             this.passwordError = 'The password you entered is invalid. Please try again.'
           }
         }
