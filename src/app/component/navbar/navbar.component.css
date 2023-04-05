@@ -1,56 +1,40 @@
 .navbar{
-    /* box-sizing: border-box; */
-    /* width: 82.5rem; */
-    /* width: 100%; */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     height: 4.75rem;
-    background: #FEFDF7;
-    border: 1px solid #D6D6D6;
-    position: sticky;
-    top:0;
+    background: #fefdf7;
+    padding: 0 0 0 2rem;
+    position: fixed;
+    top: 0;
+    width: 90%;
 }
 
-.brand{
-    position: absolute;
-    width: 11.31rem;
-    height: 2.18rem;
-    padding-top: 1rem;
-    padding-left: 1.37rem;
+.user{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    align-self: stretch;
+    padding: 0 1rem;
+}
+
+.user:hover{
+    background-color: #f6f5ef;
 }
 
 .user-logo{
-    position: absolute;
-    width: 2.5rem;
     height: 2.5rem;
-    left: 63rem;
-    right: 14.43rem;
-    top: 1rem;
+    width: 2.5rem;
 }
 
 .name{
-    position: absolute;
-    width: 16rem;
-    height: 1.37rem;
-    left: 66.125rem;
-    padding-top: 1rem;
-    color: #2A2A2A;
-    font-style: normal;
-    font-weight: 600;
     font-size: 1rem;
+    font-weight: 700;
+    color: #2a2a2a;
 }
 
 .email{
-    position: absolute;
-    width: 16rem;
-    height: 1.37rem;
-    left: 66.125rem;
-    padding-top: 2.0625rem;
-    color: #777777;
-    font-style: normal;
-    font-weight: 400;
+    color: #777;
     font-size: 0.875rem;
-}
-
-.logout-btn  img{
-    padding-left: 77.5rem;
-    margin-top: 1.375rem;
 }

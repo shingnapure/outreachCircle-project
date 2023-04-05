@@ -18,9 +18,9 @@ import { FormsModule } from '@angular/forms';
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { SkeletonComponent } from './skeleton/skeleton.component';
 import { CookieService } from 'ngx-cookie-service';
+
 import { IsloggedService } from './services/islogged.service';
 import {MatMenuModule} from '@angular/material/menu';
-
 
 @NgModule({
   declarations: [
@@ -46,7 +46,7 @@ import {MatMenuModule} from '@angular/material/menu';
     NgxSkeletonLoaderModule ,
     MatMenuModule
   ],
-  providers: [CookieService , IsloggedService],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

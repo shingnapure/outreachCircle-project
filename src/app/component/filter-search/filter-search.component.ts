@@ -12,11 +12,16 @@ export class FilterSearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   
   @ViewChild('MatMenuTrigger') trigger: MatMenuTrigger;
 
   someMethod() {
     this.trigger.openMenu();
+  }
+
+  search(){
+
   }
 
 }

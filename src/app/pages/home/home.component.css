@@ -1,9 +1,13 @@
 
 .main-section{
     display: flex;
+
 }
 .body{
     flex: 1;
     padding:2rem;
     margin-left: 14rem;
+
+    margin-top: 4.75rem;
+
 }
