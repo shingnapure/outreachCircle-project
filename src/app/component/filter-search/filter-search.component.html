@@ -1,35 +1,8 @@
 <div class="container-filter">
-  <button class="search" mat-button [matMenuTriggerFor]="menu">
+  <div class="search" mat-button [matMenuTriggerFor]="searchMenu">
     <img src="../../../assets/images/search.png" />
     <input class="input" type="search" placeholder="Search" />
-
-  </button>  
-  
-
-    <!-- <form (ngSubmit)="search()">
-        <div class="form">
-          <div class="search-title">
-            <img src="../../../assets/images/search.png"/>
-            <span> Search by the following    x </span>
-          </div>
-          <div class="name">
-            <label>OutreachCircle Name</label>
-            <input type="text" class="oc-name">
-          </div>
-          <div class="admin-first">
-            <label>Admin First Name</label>
-            <input type="text" class="first-name">
-          </div>
-          
-          <div class="admin-last">
-            <label>Admin Last Name</label>
-            <input type="text" class="last-name">
-          </div>
-          <div class="apply-btn">
-            <input type="submit" value="Apply"/>
-          </div>
-        </div>
-   </form> -->
+    
   </div>
 
   <div class="filter">
@@ -38,4 +11,32 @@
       <img src="../../../assets/images/white-arrow.svg" />
     </button>
   </div>
+  <mat-menu #searchMenu="matMenu">
+    <div class="search-filter-model">
+      <div class="model-header">
+        <div class="search-title">
+          <img src="../../../assets/images/search.png"/>
+          <span> Search by the following </span>
+        </div>
+        <h1>X</h1>
+      </div>
+      <form (ngSubmit)="search()">
+        <div>
+          <label>OutreachCircle Name</label>
+          <input type="text" class="oc-name">
+        </div>
+        <div >
+          <label>Admin First Name</label>
+          <input type="text" class="first-name">
+        </div>
+        
+        <div >
+          <label>Admin Last Name</label>
+          <input type="text" class="last-name">
+        </div>
+        <input type="submit" value="Apply"/>
+      </form>
+    </div>
+  </mat-menu>
 </div>
+

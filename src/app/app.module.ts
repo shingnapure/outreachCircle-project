@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { SkeletonComponent } from './skeleton/skeleton.component';
 import { CookieService } from 'ngx-cookie-service';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { IsloggedService } from './services/islogged.service';
 import {MatMenuModule} from '@angular/material/menu';

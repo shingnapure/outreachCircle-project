@@ -57,4 +57,41 @@
 }
 
 
+.search-filter-model{
+    width: 280px;
+}
 
+.model-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+.search-filter-model > form {
+    display: grid;
+    padding:.5rem;
+    grid-template-rows: repeat(3 , 3rem);
+    gap:.6rem;
+}
+.search-filter-model > form > div{
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #c8c8c8;
+    display: flex;
+    padding:.2rem;
+    flex-direction: column;
+}
+
+.search-filter-model input {
+    border : none;
+    background-color: transparent;
+}
+
+.search-filter-model label{
+    color : #777;
+    font-size: 12px;
+}
+
+input:focus{
+    outline : none;
+}
