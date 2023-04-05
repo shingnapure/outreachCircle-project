@@ -1,15 +1,17 @@
 .sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background: #F5F5F5;
-    /* position: absolute; */
+    position: fixed;
     width: 13.75rem;
-    height: 137.5rem;
-    top: 4.75rem;
+    height: calc(100vh - 5rem);
 }
 
 .list{
     background: #fff;
-    width: 13.75rem;
     height: 2.5rem;
+    border-right: solid 3px #008CAA ;
 }
 
 .active{
@@ -20,4 +22,36 @@
     letter-spacing: 0.0015em;
     padding-left: 2.5rem;
     padding-top: 0.56rem;
+}
+
+.new-oc{
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    height: 10rem;
+    border-top: 1px solid #D6D6D6;
+    text-align: center;
+    padding: 1rem;
+}
+.new-oc > span{
+   color: #777777;
+   font-size: 0.875rem;
+   font-weight: 400;
+   /* padding: 1rem; */
+}
+
+.new-oc > input{
+    width: 12.4375rem;
+    height: 2.25rem;
+    background: #ffffff;
+    border: 1px solid #2a2a2a;
+    color: #2a2a2a;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.001em;
+}
+
+.new-oc > input:hover{
+    background-color: #2a2a2a;
+    color: #ffffff;
 }
