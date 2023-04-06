@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import {userByToken} from 'src/app/graphql/userByToken.query';
 import { DataService } from 'src/app/services/data.service';
 
@@ -19,18 +20,16 @@ interface userToken{
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private dataservice : DataService) { }
+  constructor(private dataservice : DataService , private cookies : CookieService) { }
   
-  token = { token : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVhOTExZDM5LWNkY2UtNDdmOS05MGM4LTNmZjBiYWU5NTI3MyIsImlhdCI6MTY4MDA3MzM2Nn0.TGigrgs7C6RNRbBWF54j24nwsP1d5XVcsUvxujVbOJc"}
-
+  token = { token : this.cookies.get('_vc_token')}
+  username : string;
+  fullName : string;
   ngOnInit(): void {
-
-    this.dataservice.getData(userByToken , this.token).subscribe((res)=>{
-      console.log('comming form navbar',res)
+    this.dataservice.getData(userByToken , this.token).subscribe(({ data })=>{
+      this.username = data.userByToken.username
+      this.fullName = data.userByToken.firstName + '' + data.userByToken.lastName
     })
-    
-
-
     
   }
 

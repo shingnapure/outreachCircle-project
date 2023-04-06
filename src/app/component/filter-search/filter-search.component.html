@@ -1,6 +1,6 @@
 <div class="container-filter">
   <div class="search">
-    <img src="../../../assets/images/search.png" />
+    <img src="../../../assets/images/search.svg" />
     <input
       class="input"
       type="search"
@@ -16,27 +16,33 @@
   </div>
 </div>
 
+<!-- search model -->
 <div class="search-filter-model" *ngIf="displaySearch">
   <div class="model-header">
     <div class="search-title">
-      <img src="../../../assets/images/search.png" />
+      <img src="../../../assets/images/search.svg" />
       <span class="search-name"> Search by the following </span>
     </div>
-    <p class="cross" (click)="close()">X</p>
+    <p class="cross" (click)="close()">
+      <img src="../../../assets/images/Path.svg" />
+    </p>
   </div>
   <form (ngSubmit)="search()" class="form-control" #searchOc="ngForm">
     <div class="input-parent">
       <label>OutreachCircle Name</label>
       <input type="text" class="oc-name" name="oc-name" ngModel />
+      <div class="input-bottom-line"></div>
     </div>
     <div class="input-parent">
       <label>Admin First Name</label>
       <input type="text" class="first-name" name="first-name" ngModel />
+      <div class="input-bottom-line"></div>
     </div>
 
     <div class="input-parent">
       <label>Admin Last Name</label>
       <input type="text" class="last-name" name="last-name" ngModel />
+      <div class="input-bottom-line"></div>
     </div>
     <div class="apply">
       <button type="submit">Apply</button>
@@ -44,13 +50,7 @@
   </form>
 </div>
 
-
-
-
-
-
-
-
+<!-- filter model -->
 <div class="filter-box" *ngIf="filterSearch">
   <div class="filter-header">
     <div class="filter-header-name">
@@ -59,32 +59,49 @@
     </div>
 
     <div>
-      <img (click)="closeFilterCountry()" src="../../../assets/images/Cross.png" alt="" />
+      <img
+        (click)="closeFilterCountry()"
+        src="../../../assets/images/Path.svg"
+        alt=""
+      />
     </div>
-    <div></div>
   </div>
 
   <div class="filterSearch">
-    <img src="../../../assets/images/filterSearch.png" alt="" />
+    <img src="../../../assets/images/filtersearch.svg" alt="" />
     <input type="text" placeholder="Search" />
   </div>
 
   <form (ngSubmit)="filterSubmit()" #filterCountry="ngForm">
     <div class="select-all">
-      <input type="checkbox" />
-      <label for="">Select All ({{ countryList.length }})</label>
+      <div class="custom-checkbox-container">
+        <input type="checkbox" />
+        <div class="custom-checkbox"></div>
+      </div>
+      <label for="">Select all ({{ selectedCountry }})</label>
     </div>
 
     <div class="country-data">
-      <div *ngFor="let i of countryList" class="country-input">
-        <input type="checkbox" class="check" [name]="'i'" ngModel/>
-        <label for="">{{ i }}</label>
+      <div *ngFor="let country of countryList | keyvalue" class="country-input">
+        <div class="custom-checkbox-container">
+          <input
+            type="checkbox"
+            class="check"
+            [name]="'country.value'"
+            ngModel
+          />
+          <div class="custom-checkbox"></div>
+        </div>
+        <label for="">{{ country.key }}</label>
       </div>
     </div>
 
     <div class="exclude">
       <div>
-        <input type="checkbox" name="exclude" ngModel/>
+        <div class="custom-checkbox-container">
+          <input type="checkbox" name="exclude" ngModel />
+          <div class="custom-checkbox"></div>
+        </div>
         <label for="">Exclude States</label>
       </div>
       <div>
