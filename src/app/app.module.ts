@@ -20,9 +20,6 @@ import { SkeletonComponent } from './skeleton/skeleton.component';
 import { CookieService } from 'ngx-cookie-service';
 import { MatMenuModule } from '@angular/material/menu';
 
-import { IsloggedService } from './services/islogged.service';
-import {MatMenuModule} from '@angular/material/menu';
-
 @NgModule({
   declarations: [
     AppComponent,
