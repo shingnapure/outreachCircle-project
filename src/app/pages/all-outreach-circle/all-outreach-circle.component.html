@@ -7,7 +7,7 @@
       <span>You are an admin for 2 OutreachCircles</span>
     </div>
     <app-filter-search></app-filter-search>
-    <div *ngIf="!fetching">
+    <div *ngIf="!fetching" class="oc-data">
       <div *ngFor="let item of outercircleList">
         <app-outreachcircle-list-item [outreachcircleitem]="item"></app-outreachcircle-list-item>
       </div>

@@ -1,3 +1,12 @@
+.search-filter-model{
+    position: absolute;
+    background-color: white;
+    z-index: 10000;
+    margin-left: 4em;
+    width: 280px;
+    
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
 .container-filter{
     display: flex;
     margin-top: 2.5rem;
@@ -20,7 +29,16 @@
     margin-right: 0.625rem;
     padding-left: 1rem;
 }
-
+.search-title{
+display: flex;
+align-items: center;
+}
+.search-name{
+    font-weight: 600;
+    font-size: 14px;
+    margin-left: 0.5rem;
+    
+}
 .search > img {
     width: 1.25rem;
     height: 1.25rem;
@@ -56,16 +74,13 @@
     padding-left: 1rem;
 }
 
-
-.search-filter-model{
-    width: 280px;
-}
-
 .model-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #f5f5f5;
+    padding: 10px;
+    border-bottom: 1px solid  #c8c8c8;
 }
 
 .search-filter-model > form {
@@ -74,8 +89,8 @@
     grid-template-rows: repeat(3 , 3rem);
     gap:.6rem;
 }
-.search-filter-model > form > div{
-    background-color: #f9f9f9;
+.input-parent{
+    background-color: #F5F5F5;
     border-bottom: 1px solid #c8c8c8;
     display: flex;
     padding:.2rem;
@@ -84,7 +99,7 @@
 
 .search-filter-model input {
     border : none;
-    background-color: transparent;
+    background-color: #F5F5F5;
 }
 
 .search-filter-model label{
@@ -95,3 +110,168 @@
 input:focus{
     outline : none;
 }
+.apply{
+    display: flex;
+    margin-left: 180px;
+    justify-content: flex-end;
+    width: 69px;
+    border: none;
+    padding: 0;
+border-radius: 3px;
+}
+.apply>button{
+    width: 69px;
+    padding: 2px 15px;
+    height: 24px;
+ border: none;
+ border-radius: 3px;
+ color: white;
+    background: #008CAA;
+}
+.apply>button:hover{
+    cursor: pointer;
+}
+.oc-name:focus-within{
+    background-color:  #2493af;
+    animation: line .2s ease-out forwards;
+}
+.input-parent:focus-within label{
+    color: #2493af;
+}
+.cross:hover{
+   cursor: pointer;
+}
+
+
+
+
+
+
+
+.filter-box{
+    position: absolute;
+    background-color: white;
+    z-index: 10000;
+    width: 300px;
+/* height: 463px; */
+margin-left: 13rem;
+margin-top: -.5rem;
+background: #FFFFFF;
+box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+}
+.filter-header{
+    height: 2.25rem;
+background: #F5F5F5;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.filter-header-name{
+    display: flex;
+    align-items: center;
+}
+.filter-header-name>img{
+margin: .5rem;
+
+}
+.filter-header-name>img+p{
+font-size: 14px;
+font-weight: 600;
+line-height: 20px;
+letter-spacing: 0.001em;
+text-align: left;
+}
+.filterSearch{
+    height: 2.25rem;
+    background: white;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #EAEAEA;
+}
+.filterSearch>img{
+    margin: .5rem;
+}
+.filterSearch>input{
+border: none;
+}
+.filterSearch>input:placeholder{
+    font-size: 14px;
+    font-weight: 600;
+    color: #ADADAD;
+}
+.select-all{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #EAEAEA;
+height: 2.25rem;
+}
+
+.select-all>input{
+ margin: 0.7rem;
+}
+.country-data{
+    /* height: 350.25px; */
+    width: 300px;
+    height: 390px;
+    overflow-y: scroll;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
+}
+.country-input {
+    height: 2.25rem;
+    border-bottom: 1px solid #EAEAEA;
+    display: flex;
+    align-items: center;
+}
+.country-input>input{
+ margin: .7rem;
+ border: 1px solid #008CAA;
+filter: drop-shadow(0px 1px 2px rgba(210, 210, 210, 0.29764));
+}
+.country-input>input[type="checkbox"]::before{
+    border: 1px solid teal;
+}
+.country-data::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 15px;
+}
+.country-data::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+.country-data::-webkit-scrollbar-thumb {
+  background-color: #ADADAD;
+
+  outline: 1px solid slategrey;
+}
+
+.exclude{
+    height: 2.25rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+.exclude>div>input{
+    margin: 0.7rem;
+}
+.exclude>div>label{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0.0015em; 
+    color: #F05C40;
+}
+.filter-apply{
+        padding: 2px 15px;
+        height: 24px;
+     border: none;
+     border-radius: 3px;
+     color: white;
+        background: #008CAA;
+        margin-right: .7rem;
+    }
+   
+    .filter-apply:hover{
+        cursor: pointer;
+    }

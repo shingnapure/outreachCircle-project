@@ -1,41 +1,97 @@
 <div class="container-filter">
-  <div class="search" mat-button [matMenuTriggerFor]="searchMenu">
+  <div class="search">
     <img src="../../../assets/images/search.png" />
-    <input class="input" type="search" placeholder="Search" />
-    
+    <input
+      class="input"
+      type="search"
+      placeholder="Search"
+      (click)="searchClick()"
+    />
   </div>
-  <div class="filter">
+  <div class="filter" (click)="filter()">
     <button>
       <span>Filter by State</span>
       <img src="../../../assets/images/white-arrow.svg" />
     </button>
   </div>
-  <mat-menu #searchMenu="matMenu">
-    <div class="search-filter-model">
-      <div class="model-header">
-        <div class="search-title">
-          <img src="../../../assets/images/search.png"/>
-          <span> Search by the following </span>
-        </div>
-        <h1>X</h1>
-      </div>
-      <form (ngSubmit)="search()">
-        <div>
-          <label>OutreachCircle Name</label>
-          <input type="text" class="oc-name">
-        </div>
-        <div >
-          <label>Admin First Name</label>
-          <input type="text" class="first-name">
-        </div>
-        
-        <div >
-          <label>Admin Last Name</label>
-          <input type="text" class="last-name">
-        </div>
-        <input type="submit" value="Apply"/>
-      </form>
-    </div>
-  </mat-menu>
 </div>
 
+<div class="search-filter-model" *ngIf="displaySearch">
+  <div class="model-header">
+    <div class="search-title">
+      <img src="../../../assets/images/search.png" />
+      <span class="search-name"> Search by the following </span>
+    </div>
+    <p class="cross" (click)="close()">X</p>
+  </div>
+  <form (ngSubmit)="search()" class="form-control" #searchOc="ngForm">
+    <div class="input-parent">
+      <label>OutreachCircle Name</label>
+      <input type="text" class="oc-name" name="oc-name" ngModel />
+    </div>
+    <div class="input-parent">
+      <label>Admin First Name</label>
+      <input type="text" class="first-name" name="first-name" ngModel />
+    </div>
+
+    <div class="input-parent">
+      <label>Admin Last Name</label>
+      <input type="text" class="last-name" name="last-name" ngModel />
+    </div>
+    <div class="apply">
+      <button type="submit">Apply</button>
+    </div>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+<div class="filter-box" *ngIf="filterSearch">
+  <div class="filter-header">
+    <div class="filter-header-name">
+      <img src="../../../assets/images/Triple.png" alt="" />
+      <p>Filter by State</p>
+    </div>
+
+    <div>
+      <img (click)="closeFilterCountry()" src="../../../assets/images/Cross.png" alt="" />
+    </div>
+    <div></div>
+  </div>
+
+  <div class="filterSearch">
+    <img src="../../../assets/images/filterSearch.png" alt="" />
+    <input type="text" placeholder="Search" />
+  </div>
+
+  <form (ngSubmit)="filterSubmit()" #filterCountry="ngForm">
+    <div class="select-all">
+      <input type="checkbox" />
+      <label for="">Select All ({{ countryList.length }})</label>
+    </div>
+
+    <div class="country-data">
+      <div *ngFor="let i of countryList" class="country-input">
+        <input type="checkbox" class="check" [name]="'i'" ngModel/>
+        <label for="">{{ i }}</label>
+      </div>
+    </div>
+
+    <div class="exclude">
+      <div>
+        <input type="checkbox" name="exclude" ngModel/>
+        <label for="">Exclude States</label>
+      </div>
+      <div>
+        <button class="filter-apply" type="submit">Apply</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Filter -->
