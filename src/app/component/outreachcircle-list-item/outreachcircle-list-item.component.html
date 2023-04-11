@@ -10,10 +10,16 @@
   <div class="meta-info">
     <div class="oc">
       <div>
-        <p class="oc-name">{{outreachcircleitem.name}}</p>
-        <div class="location" *ngIf="(outreachcircleitem.state!==null) && (outreachcircleitem.city!==null) ">
-          <img src="../../../assets/icon.svg" alt="">
-          <p>{{outreachcircleitem.city}}, {{outreachcircleitem.state}}</p>
+        <p class="oc-name">{{ outreachcircleitem.name }}</p>
+        <div
+          class="location"
+          *ngIf="
+            outreachcircleitem.state !== null &&
+            outreachcircleitem.city !== null
+          "
+        >
+          <img src="../../../assets/images/icon.svg" alt="" />
+          <p>{{ outreachcircleitem.city }}, {{ outreachcircleitem.state }}</p>
         </div>
       </div>
 
@@ -23,59 +29,77 @@
           <span></span>
           <span></span>
         </div>
-        
       </div>
     </div>
-   
-    
+
     <div class="oc-type">
-       <div class="oc-type-contents">
-          <div class="oc-type-value">
-              <img class="oc-type-logo" src="../../../assets/Supporter.svg" alt="supporter">
-              <p class="oc-type-value-count">{{outreachcircleitem.supporterCount}}</p>
-          </div>
-          <div class="oc-type-value-category">
-              <p class="oc-type-value-name">Supporters</p>
-          </div>
-       </div>
+      <div class="oc-type-contents">
+        <div class="oc-type-value">
+          <img
+            class="oc-type-logo"
+            src="../../../assets/images/Supporter.svg"
+            alt="supporter"
+          />
+          <p class="oc-type-value-count">
+            {{ outreachcircleitem.supporterCount }}
+          </p>
+        </div>
+        <div class="oc-type-value-category">
+          <p class="oc-type-value-name">Supporters</p>
+        </div>
+      </div>
 
-       <div class="vertical"></div>
+      <div class="vertical"></div>
 
-       <div class="oc-type-contents">
-          <div class="oc-type-value">
-              <img class="oc-type-logo" src="../../../assets/Action.svg" alt="supporter">
-              <p class="oc-type-value-count">{{outreachcircleitem.actionCount}}</p>
-          </div>
-          <div class="oc-type-value-category">
-              <p  class="oc-type-value-name">Actions</p>
-          </div>
-       </div>
+      <div class="oc-type-contents">
+        <div class="oc-type-value">
+          <img
+            class="oc-type-logo"
+            src="../../../assets/images/Action.svg"
+            alt="supporter"
+          />
+          <p class="oc-type-value-count">
+            {{ outreachcircleitem.actionCount }}
+          </p>
+        </div>
+        <div class="oc-type-value-category">
+          <p class="oc-type-value-name">Actions</p>
+        </div>
+      </div>
 
-       <div class="vertical"></div>
+      <div class="vertical"></div>
 
-       <div class="oc-type-contents">
-          <div class="oc-type-value">
-              <img class="oc-type-logo" src="../../../assets//Link.svg" alt="supporter">
-              <p class="oc-type-value-count">{{outreachcircleitem.aliasCount}}</p>
-          </div>
-          <div class="oc-type-value-category">
-              <p class="oc-type-value-name">Links</p>
-          </div>
-       </div>
-       
-       <div class="vertical"></div>
+      <div class="oc-type-contents">
+        <div class="oc-type-value">
+          <img
+            class="oc-type-logo"
+            src="../../../assets/images/Link.svg"
+            alt="supporter"
+          />
+          <p class="oc-type-value-count">{{ outreachcircleitem.aliasCount }}</p>
+        </div>
+        <div class="oc-type-value-category">
+          <p class="oc-type-value-name">Links</p>
+        </div>
+      </div>
 
-       <div class="oc-type-contents">
-          <div class="oc-type-value">
-              <img class="oc-type-logo" src="../../../assets/Group.svg" alt="supporter">
-              <p class="oc-type-value-count">{{outreachcircleitem.groupsCount}}</p>
-          </div>
-          <div class="oc-type-value-category">
-              <p class="oc-type-value-name">Groups</p>
-          </div>
-       </div>
+      <div class="vertical"></div>
+
+      <div class="oc-type-contents">
+        <div class="oc-type-value">
+          <img
+            class="oc-type-logo"
+            src="../../../assets/images/Group.svg"
+            alt="supporter"
+          />
+          <p class="oc-type-value-count">
+            {{ outreachcircleitem.groupsCount }}
+          </p>
+        </div>
+        <div class="oc-type-value-category">
+          <p class="oc-type-value-name">Groups</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-

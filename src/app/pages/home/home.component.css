@@ -1,11 +1,9 @@
-
-.main-section{
-    display: flex;
-    margin-top: 4.75rem;
-
+.main-section {
+  display: flex;
+  margin-top: 4.75rem;
 }
-.body{
-    width: 72rem;
-    margin-left: 14rem;
-    padding  : 2rem;
+.body {
+  flex: 1;
+  margin-left: 14rem;
+  padding: 2rem;
 }

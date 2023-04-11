@@ -17,13 +17,14 @@
         [(ngModel)]="email"
         email
         required
+        autocomplete="off"
       />
       <img
         src="../../../assets/images/crossIcon.svg"
-        (click)="handleClose(emailInput)"
+        (click)="handleCloseOnInput(emailInput)"
         width="15px"
         height="15px"
-        *ngIf="(emailInput.value != '' && emailInput.dirty) || email == '' "
+        *ngIf="(emailInput.value != '' && emailInput.dirty) || email == ''"
       />
     </div>
 
@@ -33,7 +34,7 @@
         >Invalid email address</small
       >
 
-      <small *ngIf="(email == '') || error">{{ emailError }}</small>
+      <small *ngIf="email == '' || error">{{ emailError }}</small>
     </div>
   </div>
   <div
@@ -50,24 +51,27 @@
         required
         #passwordInput="ngModel"
         [(ngModel)]="password"
+        autocomplete="off"
       />
       <img
         src="../../../assets/images/crossIcon.svg"
-        (click)="handleClose(passwordInput)"
+        (click)="handleCloseOnInput(passwordInput)"
         width="15px"
         height="15px"
-        *ngIf="(passwordInput.value != '' && passwordInput.dirty) || password == ''"
+        *ngIf="
+          (passwordInput.value != '' && passwordInput.dirty) || password == ''
+        "
       />
     </div>
     <div class="input-bottom-line"></div>
     <div>
-      <small *ngIf="(password == '') || error">{{ passwordError }}</small>
+      <small *ngIf="password == '' || error">{{ passwordError }}</small>
     </div>
   </div>
   <div>
     <input
       type="submit"
-      value="{{ loading ? loadingImg : 'Login with email'}}"
+      value="{{ loading ? loadingImg : 'Login with email' }}"
       class="login-btn"
       [disabled]="!loginForm.valid"
       [ngClass]="{ 'disbled-btn': !loginForm.valid }"

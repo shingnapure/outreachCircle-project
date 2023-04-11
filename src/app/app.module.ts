@@ -15,10 +15,11 @@ import { UserComponent } from './pages/user/user.component';
 import { AllOutreachCircleComponent } from './pages/all-outreach-circle/all-outreach-circle.component';
 import { LoginFormComponent } from './component/login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
-import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { SkeletonComponent } from './skeleton/skeleton.component';
 import { CookieService } from 'ngx-cookie-service';
 import { MatMenuModule } from '@angular/material/menu';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -41,10 +42,11 @@ import { MatMenuModule } from '@angular/material/menu';
     HttpClientModule,
     GraphQLModule,
     FormsModule,
-    NgxSkeletonLoaderModule ,
-    MatMenuModule
+    NgxSkeletonLoaderModule,
+    MatMenuModule,
+    Ng2SearchPipeModule,
   ],
   providers: [CookieService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

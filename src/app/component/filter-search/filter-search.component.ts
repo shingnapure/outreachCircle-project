@@ -1,112 +1,128 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { NgForm } from '@angular/forms';
-// import { MatMenuTrigger } from '@angular/material/menu';
+import { CountryList } from 'src/app/services/countryData';
+import { Countrydata } from 'src/app/services/interface';
+
 @Component({
   selector: 'app-filter-search',
   templateUrl: './filter-search.component.html',
-  styleUrls: ['./filter-search.component.css']
+  styleUrls: ['./filter-search.component.css'],
 })
+
 export class FilterSearchComponent implements OnInit {
- 
-  constructor() { }
+  masterSelected: boolean;
+  checkedList: string[];
+  excludeCountry: boolean = false;
+  showExclude: boolean = false;
+  searchText: string = '';
+  displaySearch: boolean = false;
+  filterSearch: boolean = false;
+  filterResults = {};
+  displayStateCount : boolean = false;
 
-  countryList:{} = {
-    "Alaska": "AK",
-    "Alabama": "AL",
-    "Arkansas": "AR",
-    "Arizona": "AZ",
-    "California": "CA",
-    "Colorado": "CO",
-    "Connecticut": "CT",
-    "Delaware": "DE",
-    "Florida": "FL",
-    "Georgia": "GA",
-    "Hawaii": "HI",
-    "Lowa": "IA",
-    "Idaho": "ID",
-    "Illinois": "IL",
-    "Indiana": "IN",
-    "Kansas": "KS",
-    "Kentucky": "KY",
-    "Louisiana": "LA",
-    "Massachusetts": "MA",
-    "Maryland": "MD",
-    "Maine": "ME",
-    "Michigan": "MI",
-    "Minnesota": "MN",
-    "Missouri": "MO",
-    "Mississippi": "MS",
-    "Montana": "MT",
-    "North Carolina": "NC",
-    "North Dakota": "ND",
-    "Nebraska": "NE",
-    "New Hampshire": "NH",
-    "New Jersey": "NJ",
-    "New Mexico": "NM",
-    "Nevada": "NV",
-    "New York": "NY",
-    "Ohio": "OH",
-    "Oklahoma": "OK",
-    "Oregon": "OR",
-    "Pennsylvania": "PA",
-    "Rhode Island": "RI",
-    "South Carolina": "SC",
-    "South Dakota": "SD",
-    "Tennessee": "TN",
-    "Texas": "TX",
-    "Utah": "UT",
-    "Virginia": "VA",
-    "Vermont": "VT",
-    "Washington": "WA",
-    "Wisconsin": "WI",
-    "West Virginia": "WV",
-    "Wyoming": "WY",
-    "District of Columbia": "DC",
-    "American Samoa": "AS",
-    "Guam": "GU",
-    "Northern Mariana Islands": "MP",
-    "Ouerto Rico": "PR",
-    "U.S.Virgin Islands": "VI",
-    "Federated Stats of Micronesia": "FM",
-    "Marshall Islands": "MH",
-    "Palau": "PW"
-  };
+  @Output() getFilterValue = new EventEmitter();
+  @Output() getSearchFilter = new EventEmitter();
+  @Output() removeFilter = new EventEmitter();
+  @ViewChild('searchOc') searchData: NgForm;
+  @ViewChild('filterCountry') filterCountry: NgForm;
 
-  selectedCountry : Number = Object.keys(this.countryList).length
-  displaySearch:boolean=false
-  filterSearch:boolean=false
+  constructor(private countrydata: CountryList) {}
 
-  ngOnInit(): void {
-    console.log(this.countryList)
+  ngOnInit() {
+    this.masterSelected = false;
+    this.getCheckedAllCountries();
+  }
+
+  //search handle function
+  search() {
+    this.displaySearch = !this.displaySearch;
+    this.filterSearch = false;
+  }
+
+  //Apply open/close on search model
+  applySearch() {
+    this.getSearchFilter.emit(this.searchData.value);
+    this.displaySearch = false;
+  }
+  closeSearch() {
+    this.displaySearch = false;
+  }
+
+  //filter handle function
+  filter() {
+    this.filterSearch = !this.filterSearch;
+    this.displaySearch = false;
+  }
+
+  //   when click on the all-select checkbox (select all conutry data)
+  checkUncheck() {
+    this.showExclude = true;
+    this.masterSelected = this.countrydata.countryList.every(
+      (item: Countrydata) => {
+        return item.isSelected == true;
+      }
+    );
+    this.getCheckedAllCountries();
+  }
+
+  uncheckValues() {
+    this.showExclude = false;
+    this.masterSelected = this.countrydata.countryList.every(
+      (item: Countrydata) => {
+        return item.isSelected == false;
+      }
+    );
+     this.getCheckedAllCountries();
+  }
+
+  // check is individual conutry is selected or not
+  isAllSelected() {
+    this.showExclude = true;
+    for (let i = 0; i < this.countrydata.countryList.length; i++) {
+      this.countrydata.countryList[i].isSelected = this.masterSelected;
+    }
+    this.getCheckedAllCountries();
+  }
+
+  // check if is checked or not
+  getCheckedAllCountries() {
+    this.checkedList = [];
+    for (var i = 0; i < this.countrydata.countryList.length; i++) {
+      if (this.countrydata.countryList[i].isSelected)
+        this.checkedList.push(this.countrydata.countryList[i].code);
+    }
+    this.filterResults = {
+      stateCodes: this.checkedList,
+      isExclude: this.excludeCountry,
+    };
+  }
+
+  exclude() {
+    this.excludeCountry = !this.excludeCountry;
+  }
+
+  //Apply open/close on filter model
+  applyFilter() {
+    this.getFilterValue.emit(this.filterResults);
+    this.filterSearch = false;
+    this.displayStateCount = true
 
   }
-@ViewChild('searchOc') searchData:NgForm
-@ViewChild('filterCountry') filterData:NgForm
+  closeFilter() {
+    this.filterSearch = false;
+  }
 
-  search(){
-    console.log(this.searchData.value);
-    this.displaySearch=false
+  // remove the filter
+  getAllData(){
+    this.isAllSelected()
+    this.removeFilter.emit(this.displayStateCount)
+    this.displayStateCount = false
     
-  }
-  filter(){
-    this.filterSearch=!this.filterSearch
-    this.displaySearch=false
-  }
-
-  searchClick(){
-    this.displaySearch=!this.displaySearch
-    this.filterSearch=false
-    
-  }
-  close(){
-    this.displaySearch=false
-  }
-
-  closeFilterCountry(){
-    this.filterSearch=false
-  }
-  filterSubmit(){
-  console.log("filterDaa",this.filterData);
-  
   }
 }

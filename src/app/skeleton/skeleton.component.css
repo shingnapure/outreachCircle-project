@@ -1,11 +1,11 @@
-.skeleton-border{
-    display: flex;
-    column-gap: 1.5rem;
-    border: solid 1px #d6d6d6;
-    padding: 0.7rem;
-    border-radius: 5px;
-    margin-top: 1rem;
+.skeleton-border {
+  display: flex;
+  column-gap: 1.5rem;
+  border: solid 1px #d6d6d6;
+  padding: 0.7rem;
+  border-radius: 5px;
+  margin-top: 1rem;
 }
-.skeleton-rectangel-bottom{
-    margin-top: 1rem;
+.skeleton-rectangel-bottom {
+  margin-top: 1rem;
 }

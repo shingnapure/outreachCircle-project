@@ -1,126 +1,99 @@
-p{
-    color : #2A2A2A;
-    font-weight: 400;
-    line-height: 1.3rem;
-    margin-bottom: 1.5rem;
-
+p {
+  color: #2a2a2a;
+  font-weight: 400;
+  line-height: 1.3rem;
+  margin-bottom: 1.5rem;
 }
 
 form {
-     display: flex;
-     flex-direction: column;
-     gap : 2rem;
-     color: #777777;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  color: #777777;
 }
 
 form > div {
-     display: flex;
-     flex-direction: column;
-     
+  display: flex;
+  flex-direction: column;
 }
 
 label {
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 10px;
-    color: #777;
-
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 10px;
+  color: #777;
 }
 
 input {
-    border: none;
-    padding: 10px 10px 5px 0;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 400;
-    line-height: 1.3rem;
+  border: none;
+  padding: 10px 10px 5px 0;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  line-height: 1.3rem;
 }
 
-input:focus {
-    outline: none;
+.form-control-input:focus-within label {
+  color: #2493af;
 }
 
-.input-bottom-line{
-    background-color: #979797;
-    height: 1px;
+.form-control-input:focus-within .input-bottom-line {
+  background-color: teal;
+  height: 2px;
+  margin: auto;
+  animation: line 0.2s ease-out forwards;
 }
 
-
-.form-control-input:focus-within label{
-    color: #2493af;
+.input-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.form-control-input:focus-within .input-bottom-line{
-    background-color: teal;
-    height: 2px;
-    margin: auto;
-    animation: line .2s ease-out forwards;
-}
-
-
-.input-text{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.input-text input{
-    flex: 1;
+.input-text input {
+  flex: 1;
 }
 
 .input-text img {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-::placeholder{
-    color:#D6D6D6;
+::placeholder {
+  color: #d6d6d6;
 }
 
-
-
-.login-btn{
-    background: teal;
-    border-radius: 2px;
-    color: #fff;
-    border: none;
-    height: 2.8rem;
-    font-size: 17px;
-    margin-top: 3.1rem;
-    cursor: pointer;
-    
+.login-btn {
+  background:#008caa;
+  border-radius: 2px;
+  color: #fff;
+  border: none;
+  height: 2.8rem;
+  font-size: 17px;
+  margin-top: 3.1rem;
+  cursor: pointer;
 }
 
-.disbled-btn.login-btn{
-    background: #D6D6D6;
-
+.disbled-btn.login-btn {
+  background: #d6d6d6;
 }
 
-span{
-    text-align: end;
-    padding: .5rem;
+span {
+  text-align: end;
+  padding: 0.5rem;
 }
 
-
-.show-error-msg{
-    color: red;
+.show-error-msg {
+  color: red;
 }
 
 small {
-     color : red;
+  color: red;
 }
 
-.form-control-input.show-error-msg label{
-    color: red;
+.form-control-input.show-error-msg label {
+  color: red;
 }
 
-.form-control-input.show-error-msg .input-bottom-line{
-    background-color: red;
-}
-
-@keyframes line{
-    from {
-        width: 0;
-    }to{
-        width: 100%;
-    }
+.form-control-input.show-error-msg .input-bottom-line {
+  background-color: red;
 }

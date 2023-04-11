@@ -1,47 +1,69 @@
 <div class="container-filter">
-  <div class="search">
+  <!-- search -->
+  <div class="search" (click)="search()">
     <img src="../../../assets/images/search.svg" />
-    <input
-      class="input"
-      type="search"
-      placeholder="Search"
-      (click)="searchClick()"
-    />
+    <button class="input" type="search" placeholder="Search">search</button>
   </div>
+  <!-- Filter -->
   <div class="filter" (click)="filter()">
     <button>
       <span>Filter by State</span>
       <img src="../../../assets/images/white-arrow.svg" />
     </button>
   </div>
+  
+  <div class="stateCount" *ngIf="displayStateCount">
+    <img src="../../../assets/images/tealcross.svg" (click)="getAllData()"/>
+    <span>State ({{checkedList.length }})</span>
+    <img src="../../../assets/images/tealdownarrow.svg"/>
+  </div>
 </div>
 
-<!-- search model -->
+
+<!-- Search model -->
 <div class="search-filter-model" *ngIf="displaySearch">
   <div class="model-header">
     <div class="search-title">
       <img src="../../../assets/images/search.svg" />
       <span class="search-name"> Search by the following </span>
     </div>
-    <p class="cross" (click)="close()">
+    <p class="cross" (click)="closeSearch()">
       <img src="../../../assets/images/Path.svg" />
     </p>
   </div>
-  <form (ngSubmit)="search()" class="form-control" #searchOc="ngForm">
+  <form (ngSubmit)="applySearch()" class="form-control" #searchOc="ngForm">
     <div class="input-parent">
       <label>OutreachCircle Name</label>
-      <input type="text" class="oc-name" name="oc-name" ngModel />
+      <input
+        type="text"
+        class="oc-name"
+        name="name"
+        ngModel
+        autocomplete="off"
+      />
       <div class="input-bottom-line"></div>
     </div>
     <div class="input-parent">
       <label>Admin First Name</label>
-      <input type="text" class="first-name" name="first-name" ngModel />
+      <input
+        type="text"
+        class="first-name"
+        name="adminFirstName"
+        ngModel
+        autocomplete="off"
+      />
       <div class="input-bottom-line"></div>
     </div>
 
     <div class="input-parent">
       <label>Admin Last Name</label>
-      <input type="text" class="last-name" name="last-name" ngModel />
+      <input
+        type="text"
+        class="last-name"
+        name="adminLastName"
+        ngModel
+        autocomplete="off"
+      />
       <div class="input-bottom-line"></div>
     </div>
     <div class="apply">
@@ -50,7 +72,7 @@
   </form>
 </div>
 
-<!-- filter model -->
+<!-- Filter model -->
 <div class="filter-box" *ngIf="filterSearch">
   <div class="filter-header">
     <div class="filter-header-name">
@@ -60,7 +82,8 @@
 
     <div>
       <img
-        (click)="closeFilterCountry()"
+        (click)="closeFilter()"
+        class="closeFilter"
         src="../../../assets/images/Path.svg"
         alt=""
       />
@@ -68,47 +91,72 @@
   </div>
 
   <div class="filterSearch">
-    <img src="../../../assets/images/filtersearch.svg" alt="" />
-    <input type="text" placeholder="Search" />
+    <img src="../../../assets/images/filterSearch.png" alt="" />
+    <input type="text" placeholder="Search" [(ngModel)]="searchText" />
   </div>
 
-  <form (ngSubmit)="filterSubmit()" #filterCountry="ngForm">
-    <div class="select-all">
+  <div class="select-all">
+    <div class="custom-checkbox-container">
+      <input
+        type="checkbox"
+        [(ngModel)]="masterSelected"
+        (change)="isAllSelected()"
+        name="allCountries"
+      />
+      <div class="custom-checkbox"></div>
+    </div>
+    <label
+      *ngIf="
+        checkedList.length >= 1 &&
+        countrydata.countryList.length !== checkedList.length
+      "
+      >{{ checkedList.length }} Out of
+      {{ countrydata.countryList.length }} selected</label
+    >
+    <label *ngIf="checkedList.length == 0"
+      >Select all ({{ countrydata.countryList.length }})</label
+    >
+    <label *ngIf="countrydata.countryList.length === checkedList.length"
+      >All ({{ checkedList.length }}) selected</label
+    >
+  </div>
+
+  <div
+    [ngClass]="
+      searchText === '' ? 'country-data' : 'country-data-withotSearchText'
+    "
+  >
+    <div
+      *ngFor="let item of countrydata.countryList | filter : searchText"
+      class="country-input"
+    >
       <div class="custom-checkbox-container">
-        <input type="checkbox" />
+        <input
+          type="checkbox"
+          class="check"
+          value="{{ item.code }}"
+          name="country"
+          [(ngModel)]="item.isSelected"
+          (change)="checkUncheck()"
+        />
         <div class="custom-checkbox"></div>
       </div>
-      <label for="">Select all ({{ selectedCountry }})</label>
+      <label for="">{{ item.country }}</label>
     </div>
+  </div>
 
-    <div class="country-data">
-      <div *ngFor="let country of countryList | keyvalue" class="country-input">
-        <div class="custom-checkbox-container">
-          <input
-            type="checkbox"
-            class="check"
-            [name]="'country.value'"
-            ngModel
-          />
-          <div class="custom-checkbox"></div>
-        </div>
-        <label for="">{{ country.key }}</label>
+  <div class="exclude" *ngIf="showExclude && checkedList.length !== 0">
+    <div>
+      <div class="custom-checkbox-container">
+        <input type="checkbox" name="exclude" (change)="exclude()" />
+        <div class="custom-checkbox"></div>
       </div>
+      <label for="">Exclude States</label>
     </div>
-
-    <div class="exclude">
-      <div>
-        <div class="custom-checkbox-container">
-          <input type="checkbox" name="exclude" ngModel />
-          <div class="custom-checkbox"></div>
-        </div>
-        <label for="">Exclude States</label>
-      </div>
-      <div>
-        <button class="filter-apply" type="submit">Apply</button>
-      </div>
+    <div>
+      <button class="filter-apply" (click)="applyFilter()">
+        Apply
+      </button>
     </div>
-  </form>
+  </div>
 </div>
-
-<!-- Filter -->

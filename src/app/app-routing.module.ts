@@ -7,20 +7,23 @@ import { UserComponent } from './pages/user/user.component';
 import { IsloggedService } from './services/islogged.service';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: '', component: LoginComponent },
   {
     path: 'user',
     component: UserComponent,
-    canActivate : [IsloggedService],
+    canActivate: [IsloggedService],
     children: [
       {
         path: 'home',
         component: HomeComponent,
-        children: [{ path: '', component: AllOutreachCircleComponent } ]
-      } 
+        children: [{ path: '', component: AllOutreachCircleComponent }],
+      },
     ],
   },
-
+  {
+    path: '**',
+    redirectTo: 'user/home',
+  },
 ];
 
 @NgModule({
