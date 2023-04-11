@@ -1,8 +1,16 @@
 <div class="container-filter">
   <!-- search -->
-  <div class="search" (click)="search()">
-    <img src="../../../assets/images/search.svg" />
-    <button class="input" type="search" placeholder="Search">search</button>
+  <div class="search" >
+    <div *ngIf="!isSearchApply ; else searchApply">
+      <img src="../../../assets/images/search.svg" />
+      <button class="input"  (click)="search()"   placeholder="Search">search</button>
+    </div>
+    <ng-template #searchApply>
+      <button class="input input-with-value">
+        <span>{{ searchVal  }}</span>
+        <img src="../../../assets/images/crossIcon.svg" (click)="removeSearch()"/>
+      </button>
+    </ng-template> 
   </div>
   <!-- Filter -->
   <div class="filter" (click)="filter()">

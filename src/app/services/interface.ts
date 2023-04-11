@@ -9,19 +9,28 @@ export interface Search {
   adminFirstName: string;
   adminLastName: string;
 }
+
 export interface Filter {
   stateCodes: string[];
   isExclude: boolean;
 }
 
-export interface loginType {
-    token: string;
+export interface InputLoginUser {
+    login : {
+      token: string;
     user: {
       id: string;
       username: string;
       firstName: string;
       lastName: string;
-    };
+    }
+  }
+}
+
+export interface AllOuterCircleList {
+  outreachCirclesByLoggedInUser : {
+    items : outreachcircleitem[]
+  }
 }
 
 export interface outreachcircleitem {
@@ -38,21 +47,16 @@ export interface outreachcircleitem {
   liveActionsCount?: Number;
 }
 
-// type of result data while doing mutation
-export interface mutationResultType{
-  login : loginType 
+export interface logOut{
   logout : boolean
 }
 
-// type of result data while doing query
-export interface queryResultType {
+export interface userbytoken {
   userByToken : {
     firstName : string
     lastName : string
     username : string
   }
-  outreachCirclesByLoggedInUser : {
-    items : outreachcircleitem[]
-  }
+  
 }
 

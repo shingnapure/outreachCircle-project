@@ -20,6 +20,7 @@ import { SkeletonComponent } from './skeleton/skeleton.component';
 import { CookieService } from 'ngx-cookie-service';
 import { MatMenuModule } from '@angular/material/menu';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { IsloggedService } from './services/islogged.service';
 
 @NgModule({
   declarations: [

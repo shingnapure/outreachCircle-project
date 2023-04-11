@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Apollo } from 'apollo-angular';
 import { CookieService } from 'ngx-cookie-service';
 import { Userlogin } from 'src/app/graphql/graphql.mutation';
 import { DataService } from 'src/app/services/data.service';
-import { loginType } from 'src/app/services/interface';
+import { InputLoginUser } from 'src/app/services/interface';
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -25,7 +26,8 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private cookies: CookieService,
     private route: Router,
-    private dataService: DataService
+    private apollo : Apollo ,
+    private dataService: DataService 
   ) {}
 
   ngOnInit(): void {}
@@ -39,7 +41,12 @@ export class LoginFormComponent implements OnInit {
         password: this.loginForm.value.password,
       },
     };
-    this.dataService.setData(Userlogin, data).subscribe(
+
+    // graphql api call
+    this.apollo.mutate<InputLoginUser>({
+      mutation : Userlogin ,
+      variables : data
+    }).subscribe(
       ({ data }) => {
         this.loadingImg = '✓';
         setTimeout(() => {

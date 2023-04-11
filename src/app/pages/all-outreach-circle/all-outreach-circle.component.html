@@ -2,7 +2,8 @@
   <div class="home-body">
     <div class="title">All OutreachCircles</div>
     <div class="sub-title">
-      <span>You are an admin for {{ sizeOfOc }} OutreachCircles</span>
+      <span *ngIf="sizeOfOc != 0">You are an admin for {{ sizeOfOc }} OutreachCircles</span>
+      <span *ngIf="sizeOfOc == 0">No OutreachCircles Found.</span>
     </div>
     <app-filter-search
       (getFilterValue)="filterValues($event)"

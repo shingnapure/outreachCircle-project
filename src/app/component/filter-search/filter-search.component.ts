@@ -25,6 +25,8 @@ export class FilterSearchComponent implements OnInit {
   filterSearch: boolean = false;
   filterResults = {};
   displayStateCount : boolean = false;
+  isSearchApply : boolean = false;
+  searchVal:string;
 
   @Output() getFilterValue = new EventEmitter();
   @Output() getSearchFilter = new EventEmitter();
@@ -47,11 +49,29 @@ export class FilterSearchComponent implements OnInit {
 
   //Apply open/close on search model
   applySearch() {
+
+    this.checkEmptyFilterValue(this.searchData.value)
+    
     this.getSearchFilter.emit(this.searchData.value);
     this.displaySearch = false;
+    this.isSearchApply = true;
+  }
+
+  checkEmptyFilterValue(data){
+    let val = Object.values(data).filter((item) => {
+      if(item) {
+        return item
+      }
+    })
+    this.searchVal = val.join(',')
   }
   closeSearch() {
     this.displaySearch = false;
+  }
+
+  removeSearch(){
+    this.isSearchApply = false
+    this.removeFilter.emit('search')
   }
 
   //filter handle function
@@ -121,7 +141,7 @@ export class FilterSearchComponent implements OnInit {
   // remove the filter
   getAllData(){
     this.isAllSelected()
-    this.removeFilter.emit(this.displayStateCount)
+    this.removeFilter.emit('filter')
     this.displayStateCount = false
     
   }

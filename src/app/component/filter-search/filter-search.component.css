@@ -27,12 +27,19 @@
   width: 10rem;
   border: 1px solid #adadad;
   display: flex;
-  flex-direction: row;
   gap: 0.5rem;
   align-items: center;
   background: #ffffff;
   border-radius: 0.1875rem;
-  padding-left: 1rem;
+  padding: 0 .6rem;
+}
+.search > div{
+  display: flex;
+  align-items: center;
+  gap:.5rem;
+}
+.search button{
+  flex:1;
 }
 
 .search-title {
@@ -55,6 +62,7 @@
   font-size: 1rem;
   font-weight: 400;
   color: #777;
+  text-align: left;
 }
 
 .filter {
@@ -332,4 +340,16 @@
 .stateCount img:last-child{
   width: 11px;
   height: 11px;
+}
+
+.input-with-value{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-with-value img{
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
 }

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Apollo } from 'apollo-angular';
 import { CookieService } from 'ngx-cookie-service';
 import { landing } from 'src/app/graphql/graphql.query';
 import { DataService } from 'src/app/services/data.service';
-import { Search, Filter, outreachcircleitem } from 'src/app/services/interface';
+import { Search, Filter, outreachcircleitem, AllOuterCircleList } from 'src/app/services/interface';
 
 @Component({
   selector: 'app-all-outreach-circle',
@@ -25,7 +26,8 @@ export class AllOutreachCircleComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
-    private cookies: CookieService
+    private cookies: CookieService ,
+    private apollo : Apollo
   ) {}
 
   ngOnInit() {
@@ -52,28 +54,29 @@ export class AllOutreachCircleComponent implements OnInit {
   }
 
   // remove the filter
-  handleRemoveFilter(checkState : boolean){
-    if(checkState){
+  handleRemoveFilter(checkState : string){
+    this.fetching = true;
+    if(checkState == 'filter'){
       this.val.filter.stateFilter = {}
-      this.fetchData()
+    }else if(checkState == 'search'){
+      this.val.filter.searchFilter = {} 
     }
+    this.fetchData()
   }
 
   // Fetching the api
   fetchData() {
-    this.dataService
-      .getData(
-        landing,
-        { input: this.val },
-        {
-          headers: { Authorization: this.cookies.get(this.dataService.token) },
-        }
-      )
-      .subscribe((val) => {
-        this.fetching = false;
+    this.apollo.query<AllOuterCircleList>({
+      query : landing ,
+      variables : { input : this.val} ,
+      context : {
+        headers: { Authorization: this.cookies.get(this.dataService.token) },
+      }
+    }).subscribe((val) => {
         this.outercircleList = val.data.outreachCirclesByLoggedInUser.items;
         this.sizeOfOc = this.outercircleList.length;
         this.fetching = false;
+
       });
   }
 }
