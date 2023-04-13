@@ -3,14 +3,18 @@ import { Apollo } from 'apollo-angular';
 import { CookieService } from 'ngx-cookie-service';
 import { landing } from 'src/app/graphql/graphql.query';
 import { DataService } from 'src/app/services/data.service';
-import { Search, Filter, outreachcircleitem, AllOuterCircleList } from 'src/app/services/interface';
+import {
+  Search,
+  Filter,
+  outreachcircleitem,
+  AllOuterCircleList,
+} from 'src/app/services/interface';
 
 @Component({
   selector: 'app-all-outreach-circle',
   templateUrl: './all-outreach-circle.component.html',
   styleUrls: ['./all-outreach-circle.component.css'],
 })
-
 export class AllOutreachCircleComponent implements OnInit {
   outercircleList: outreachcircleitem[];
   sizeOfOc: number = 0;
@@ -26,8 +30,8 @@ export class AllOutreachCircleComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
-    private cookies: CookieService ,
-    private apollo : Apollo
+    private cookies: CookieService,
+    private apollo: Apollo
   ) {}
 
   ngOnInit() {
@@ -37,7 +41,6 @@ export class AllOutreachCircleComponent implements OnInit {
   // Getting the Filter values from Child
   filterValues(value: Filter) {
     this.val.filter.stateFilter = value;
-    this.fetching = true;
     this.fetchData();
   }
 
@@ -49,34 +52,34 @@ export class AllOutreachCircleComponent implements OnInit {
       }
     });
     this.val.filter.searchFilter = values;
-    this.fetching = true;
     this.fetchData();
   }
 
   // remove the filter
-  handleRemoveFilter(checkState : string){
-    this.fetching = true;
-    if(checkState == 'filter'){
-      this.val.filter.stateFilter = {}
-    }else if(checkState == 'search'){
-      this.val.filter.searchFilter = {} 
+  handleRemoveFilter(checkState: string) {
+    if (checkState == 'filter') {
+      this.val.filter.stateFilter = {};
+    } else if (checkState == 'search') {
+      this.val.filter.searchFilter = {};
     }
-    this.fetchData()
+    this.fetchData();
   }
 
   // Fetching the api
   fetchData() {
-    this.apollo.query<AllOuterCircleList>({
-      query : landing ,
-      variables : { input : this.val} ,
-      context : {
-        headers: { Authorization: this.cookies.get(this.dataService.token) },
-      }
-    }).subscribe((val) => {
+    this.fetching = true;
+    this.apollo
+      .query<AllOuterCircleList>({
+        query: landing,
+        variables: { input: this.val },
+        context: {
+          headers: { Authorization: this.cookies.get(this.dataService.token) },
+        },
+      })
+      .subscribe((val) => {
         this.outercircleList = val.data.outreachCirclesByLoggedInUser.items;
         this.sizeOfOc = this.outercircleList.length;
         this.fetching = false;
-
       });
   }
 }
