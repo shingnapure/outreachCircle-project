@@ -38,7 +38,12 @@ export interface outreachcircleitem {
   name: String;
   city: String;
   state: String;
-  status?: Object;
+  status?:  {
+    createdAndActivate:boolean
+  }
+  code: {
+    value:string
+  }
   supporterCount?: Number;
   actionCount?: Number;
   groupsCount?: Number;

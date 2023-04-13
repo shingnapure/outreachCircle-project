@@ -10,7 +10,7 @@
   <div class="meta-info">
     <div class="oc">
       <div>
-        <p class="oc-name">{{ outreachcircleitem.name }}</p>
+        <p [ngClass]="outreachcircleitem.status.createdAndActivate? 'oc-name-active':'oc-name-inactive'">{{ outreachcircleitem.name }}</p>
         <div
           class="location"
           *ngIf="
@@ -85,8 +85,8 @@
 
       <div class="vertical"></div>
 
-      <div class="oc-type-contents">
-        <div class="oc-type-value">
+      <div class="oc-type-contents" (click)="groups()">
+        <div class="oc-type-value" >
           <img
             class="oc-type-logo"
             src="../../../assets/images/Group.svg"

@@ -8,7 +8,7 @@ p {
 form {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: .6rem;
   color: #777777;
 }
 
@@ -20,7 +20,7 @@ form > div {
 label {
   text-transform: uppercase;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 10px;
   color: #777;
 }
@@ -56,6 +56,9 @@ input {
 
 .input-text img {
   cursor: pointer;
+  width: 12px;
+  height: 12px;
+  filter: brightness(-100%)
 }
 
 ::placeholder {
@@ -69,7 +72,7 @@ input {
   border: none;
   height: 2.8rem;
   font-size: 17px;
-  margin-top: 3.1rem;
+  margin-top: 1rem;
   cursor: pointer;
 }
 
@@ -83,17 +86,19 @@ span {
 }
 
 .show-error-msg {
-  color: red;
+  color: #f05c40;
 }
 
 small {
-  color: red;
+  color: #f05c40;
+  font-size: 12px;
+  padding-bottom: .5rem;
 }
 
 .form-control-input.show-error-msg label {
-  color: red;
+  color: #f05c40;
 }
 
 .form-control-input.show-error-msg .input-bottom-line {
-  background-color: red;
+  background-color:#f05c40;
 }

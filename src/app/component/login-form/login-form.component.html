@@ -22,19 +22,15 @@
       <img
         src="../../../assets/images/crossIcon.svg"
         (click)="handleCloseOnInput(emailInput)"
-        width="15px"
-        height="15px"
-        *ngIf="(emailInput.value != '' && emailInput.dirty) || email == ''"
+        *ngIf="handleCloseInputIcon(emailInput , email)"
       />
     </div>
-
     <div class="input-bottom-line"></div>
     <div>
-      <small *ngIf="emailInput.invalid && emailInput.value"
-        >Invalid email address</small
-      >
+      <small [ngStyle]="{opacity : emailInput.invalid && emailInput.value ? '1' : '0'}"
+        >Invalid email address</small>
 
-      <small *ngIf="email == '' || error">{{ emailError }}</small>
+      <small *ngIf="email == '' || error" [ngStyle]="{marginLeft : email == '' || error ? '-115px' : '0'}">{{ emailError }}</small>
     </div>
   </div>
   <div
@@ -58,14 +54,12 @@
         (click)="handleCloseOnInput(passwordInput)"
         width="15px"
         height="15px"
-        *ngIf="
-          (passwordInput.value != '' && passwordInput.dirty) || password == ''
-        "
+        *ngIf="handleCloseInputIcon(passwordInput , password)"
       />
     </div>
     <div class="input-bottom-line"></div>
     <div>
-      <small *ngIf="password == '' || error">{{ passwordError }}</small>
+      <small  [ngStyle]="{opacity : (password == '' || error) ? '1' : '0'}">{{ passwordError }}</small>
     </div>
   </div>
   <div>

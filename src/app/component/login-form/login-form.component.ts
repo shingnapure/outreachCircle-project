@@ -19,7 +19,7 @@ export class LoginFormComponent implements OnInit {
   loadingImg: string;
   error: boolean;
   emailError: string;
-  passwordError: string;
+  passwordError: string = "This is manadatory field";
   email: string;
   password: string;
 
@@ -31,6 +31,10 @@ export class LoginFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
+
+  handleCloseInputIcon(InputTag , InputTagValue){
+    return (InputTag.value != '' && InputTag.dirty) || InputTagValue == ''
+  }
 
   handleForm() {
     this.loading = true;
