@@ -1,0 +1,47 @@
+.sidebar-nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  .list {
+    background: #fff;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .create-outreachcircle {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    height: 12rem;
+    border-top: 1px solid #d6d6d6;
+    text-align: center;
+    align-items: center;
+    padding-top: 0.5rem;
+  }
+  .create-outreachcircle > span {
+    color: #777777;
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
+  
+  .create-outreachcircle > button {
+    width: 10rem;
+    height: 2.25rem;
+    background: #ffffff;
+    border: 1px solid #2a2a2a;
+    color: #2a2a2a;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.001em;
+  }
+  
+  .create-outreachcircle > button:hover {
+    background-color: #2a2a2a;
+    color: #ffffff;
+  }
+  

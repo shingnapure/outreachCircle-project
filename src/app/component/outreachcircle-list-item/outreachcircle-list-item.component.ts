@@ -14,7 +14,7 @@ export class OutreachcircleListItemComponent {
 
   groups(){
     console.log(this.outreachcircleitem.code.value)
-    console.log(`home/user/${this.outreachcircleitem.code.value}/groups`);
+    console.log(`/user/${this.outreachcircleitem.code.value}/groups`);
     this.routes.navigate([`user/${this.outreachcircleitem.code.value}/groups`])
   }
 }
