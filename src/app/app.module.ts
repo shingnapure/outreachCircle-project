@@ -21,6 +21,10 @@ import { CookieService } from 'ngx-cookie-service';
 import { MatMenuModule } from '@angular/material/menu';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { IsloggedService } from './services/islogged.service';
+import { GroupsComponent } from './pages/groups/groups.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ActionsComponent } from './pages/actions/actions.component';
+import { UserHomeSidenavComponent } from './component/user-home-sidenav/user-home-sidenav.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,10 @@ import { IsloggedService } from './services/islogged.service';
     AllOutreachCircleComponent,
     LoginFormComponent,
     SkeletonComponent,
+    GroupsComponent,
+    DashboardComponent,
+    ActionsComponent,
+    UserHomeSidenavComponent,
   ],
   imports: [
     BrowserModule,

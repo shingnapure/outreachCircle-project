@@ -1,13 +1,13 @@
 .outer-div {
   border-radius: 5px;
   border: 1px solid #d6d6d6;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   display: flex;
   background-color: #fff;
 }
 .logo {
   width: 13rem;
-  height: 9.75rem;
+  /* height: 9.75rem; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,11 +18,12 @@
   width: 6.5rem;
 }
 .meta-info {
-  height: 7.875rem;
+  /* height: 7.875rem; */
   width: 100%;
-  left: 1rem;
-  margin-top: 1rem;
-  padding-right: 1rem;
+  padding:10px 15px;
+  /* left: 1rem; */
+  /* margin-top: 1rem; */
+  /* padding-right: 1rem; */
 }
 .oc-name-active {
   height: 1.5rem;
@@ -51,7 +52,7 @@
 .oc {
   display: flex;
   justify-content: space-between;
-  padding-left: 1rem;
+  /* padding-left: 1rem; */
 }
 .oc-options {
   height: 2rem;
@@ -99,8 +100,8 @@
 }
 .oc-type {
   display: flex;
-  margin-top: 0.5rem;
-  justify-content: space-around;
+  /* margin-top: 0.5rem; */
+  /* justify-content: space-around; */
 }
 .oc-type-value {
   display: flex;
@@ -108,12 +109,21 @@
   /* max-width: 2rem; */
 }
 .oc-type-contents {
-  padding: 0.5rem;
+  border-right: 1px solid black;
   /* border: solid 1px red; */
+  padding: 0 50px;
 }
-.oc-type-contents:hover {
+.oc-type-contents:last-child{
+  border-right: none;
+}
+
+.oc-type-contents > div{
+  margin: auto;
+  padding: .5rem;
+}
+.oc-type-contents > div:hover {
   background-color: #f7f7f7;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   cursor: pointer;
 }
 .vertical {
@@ -137,7 +147,7 @@
 }
 
 .oc-type-value-name {
-  height: 22px;
+  /* height: 22px; */
   left: calc(50% - 84px / 2 - 197px);
   font-weight: 700;
   font-size: 16px;

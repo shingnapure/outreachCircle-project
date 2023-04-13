@@ -3,7 +3,7 @@
   <div class="search" >
     <div *ngIf="!isSearchApply ; else searchApply">
       <img src="../../../assets/images/search.svg" />
-      <button class="input"  (click)="search()"   placeholder="Search">search</button>
+      <button class="input"  (click)="search()"   placeholder="Search">Search</button>
     </div>
     <ng-template #searchApply>
       <button class="input input-with-value">
