@@ -5,9 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { UserComponent } from './pages/user/user.component';
 import { IsloggedService } from './services/islogged.service';
-import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { GroupsComponent } from './pages/groups/groups.component';
-import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ActionsComponent } from './pages/actions/actions.component';
 
