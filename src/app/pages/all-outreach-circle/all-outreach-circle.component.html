@@ -12,7 +12,7 @@
     ></app-filter-search>
     <div *ngIf="!fetching" class="oc-data">
 
-      <div *ngIf="outercircleList.length != 0 ; else emptyValues">
+      <div *ngIf="outercircleList.length != 0 ; else emptyValues" class="allItems">
         <div *ngFor="let item of outercircleList">
           <app-outreachcircle-list-item
             [outreachcircleitem]="item"
@@ -29,6 +29,13 @@
     </div>
     <div *ngIf="fetching">
       <app-skeleton></app-skeleton>
+    </div>
+    <div>
+      <h1>Explore OutreachCircle</h1>
+      <div>
+        <h2>Subscribe to our training videos on YouTube</h2>
+        <p>Learn how to set up and manage your OutreachCircle with this short training series.</p>
+      </div>
     </div>
   </div>
 </main>

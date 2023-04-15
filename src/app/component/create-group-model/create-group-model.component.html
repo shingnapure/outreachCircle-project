@@ -1,0 +1,30 @@
+<div class="create-group-container">
+  <div class="header-group-model">
+    <h1>Enter a unique name for this group</h1>
+  </div>
+  <div class="group-model-body">
+    <div class="form-control-input">
+      <label>group name</label>
+      <div class="input-text">
+        <input
+          type="text"
+          placeholder="Type a name that is specific and descriptive"
+          required
+          autocomplete="off"
+          [(ngModel)]="name"
+        />
+        <!-- <img src="../../../assets/images/crossIcon.svg" /> -->
+      </div>
+      <div class="input-bottom-line"></div>
+      <small>Hint: Enter a name between 3 and 50 characters
+        </small>
+    </div>
+    <div mat-dialog-actions class="create-groups-btns">
+      <button mat-button >Cancel</button>
+      <button mat-button  [ngClass]="{ 'disbled-btn-continue': name && name.length >= 3 ? false : true }"
+        [disabled]="name && name.length < 3"
+        (click)="createGroup()"
+      >Continue</button>
+    </div>
+  </div>
+</div>
