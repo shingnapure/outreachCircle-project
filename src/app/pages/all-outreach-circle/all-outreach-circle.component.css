@@ -1,7 +1,6 @@
 main {
-  background-color: #fff;
   height:auto;
-  margin-bottom: 8rem;
+  margin-bottom: 7rem;
 }
 
 .title {
@@ -41,4 +40,76 @@ main {
   color : #008caa;
   background-color: transparent;
   border-radius: 3px;
+}
+.explore-header{
+  padding: 15px 0;
+  color: #2a2a2a;
+  font-family: Nunito;
+  font-size: 28px;
+  font-weight: 600;
+  align-self: end;
+  margin: 20px 0 10px 0;
+}
+
+.outreach-desciptions{
+  display: grid;
+  grid-template-columns: repeat(3 , 1fr);
+  gap:20px;
+}
+
+.outreach-desciptions p{
+  font-size: 14px;
+  color: #777;
+  line-height: 140%;
+}
+.outreach-desciptions > div{
+  border: 1px solid #d6d6d6;  
+}
+
+.outreach-desciptions > div:not(:first-child){
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.outreach-desciptions > div > div{
+  padding:20px;
+}
+
+.training-subscribe{
+  grid-area: 1/1/2/-1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.outreach-desciptions button{
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    border: none;
+    border-top: 1px solid #d6d6d6;
+    background-color: #fafafa;
+    color: #008caa;
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: 16px;
+    
+}
+.outreach-desciptions h2{
+  color: #2a2a2a;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.training-subscribe > div > h2{
+  font-weight: normal;
+}
+
+.training-subscribe  button{
+  margin: 20px;
+  background-color: #008caa;
+  color: #fff;
+  border-radius:3px;
+  font-size: 14px;
+  box-shadow: 0 0 0 0 rgba(0,0,0,.2), 0 0 0 0 rgba(0,0,0,.14), 0 0 0 0 rgba(0,0,0,.12);
 }

@@ -13,14 +13,14 @@
           autocomplete="off"
           [(ngModel)]="name"
         />
-        <!-- <img src="../../../assets/images/crossIcon.svg" /> -->
+        <img *ngIf="name && name.length > 0" src="../../../assets/images/crossIcon.svg" />
       </div>
       <div class="input-bottom-line"></div>
       <small>Hint: Enter a name between 3 and 50 characters
         </small>
     </div>
     <div mat-dialog-actions class="create-groups-btns">
-      <button mat-button >Cancel</button>
+      <button mat-button (click)="handleClose()">Cancel</button>
       <button mat-button  [ngClass]="{ 'disbled-btn-continue': name && name.length >= 3 ? false : true }"
         [disabled]="name && name.length < 3"
         (click)="createGroup()"

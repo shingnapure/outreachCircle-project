@@ -3,7 +3,6 @@
     justify-content: space-between;
 }
 .group{
-/* width: 255px; */
 font-weight: 600;
 font-size: 36px;
 line-height: 49px;
@@ -16,6 +15,7 @@ color: #2A2A2A;
     height: 50px;
     border:solid 1px #008CAA;
     border-radius: 5px;
+    cursor: pointer;
 }
 .group-logo{
     width: 48px;

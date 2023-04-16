@@ -2,7 +2,6 @@
   border-radius: 3px;
   border: 1px solid #d6d6d6;
   display: flex;
-  background-color: #fff;
   position: relative;
   overflow: hidden;
 }
@@ -29,7 +28,7 @@
   line-height: 140%;
   color: #2493af;
 }
-.oc-name:hover {
+.oc-name-active:hover , .oc-name-inactive:hover {
   text-decoration: underline;
   cursor: pointer;
 }
@@ -41,10 +40,7 @@
   line-height: 140%;
   color: #f05c40;
 }
-.oc-name-inactive:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
+
 .oc {
   display: flex;
   justify-content: space-between;

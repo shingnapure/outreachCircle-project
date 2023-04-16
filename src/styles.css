@@ -45,7 +45,6 @@ body {
   position: sticky;
   top: 0;
   left: 0;
-  /* width: 14rem; */
   height: calc(100vh - 5rem);
   border-right: 1px solid #d6d6d6;
 }
