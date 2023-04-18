@@ -25,7 +25,11 @@ import { GroupsComponent } from './pages/groups/groups.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ActionsComponent } from './pages/actions/actions.component';
 import { UserHomeSidenavComponent } from './component/user-home-sidenav/user-home-sidenav.component';
-
+import { ActionLinkAfterLoadingComponent } from './loading/action-link-after-loading/action-link-after-loading.component';
+import { ActionLinkLoadingComponent } from './loading/action-link-loading/action-link-loading.component';
+import { GroupLoadingComponent } from './loading/group-loading/group-loading.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CreateGroupModelComponent } from './component/create-group-model/create-group-model.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +47,10 @@ import { UserHomeSidenavComponent } from './component/user-home-sidenav/user-hom
     DashboardComponent,
     ActionsComponent,
     UserHomeSidenavComponent,
+    ActionLinkAfterLoadingComponent,
+    ActionLinkLoadingComponent,
+    GroupLoadingComponent,
+    CreateGroupModelComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +62,7 @@ import { UserHomeSidenavComponent } from './component/user-home-sidenav/user-hom
     NgxSkeletonLoaderModule,
     MatMenuModule,
     Ng2SearchPipeModule,
+    MatDialogModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

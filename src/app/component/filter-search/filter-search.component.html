@@ -6,8 +6,8 @@
       <button class="input"  (click)="search()"   placeholder="Search">Search</button>
     </div>
     <ng-template #searchApply>
-      <button class="input input-with-value">
-        <span>{{ searchVal  }}</span>
+      <button class="input input-with-value" >
+        <span (click)="showInputValue()">{{ searchVal  }}</span>
         <img src="../../../assets/images/crossIcon.svg" (click)="removeSearch()"/>
       </button>
     </ng-template> 
@@ -48,6 +48,7 @@
         name="name"
         ngModel
         autocomplete="off"
+        [(ngModel)]="outreachname"
       />
       <div class="input-bottom-line"></div>
     </div>
@@ -59,6 +60,8 @@
         name="adminFirstName"
         ngModel
         autocomplete="off"
+        [(ngModel)]="outreachadmin"
+
       />
       <div class="input-bottom-line"></div>
     </div>
@@ -71,6 +74,8 @@
         name="adminLastName"
         ngModel
         autocomplete="off"
+        [(ngModel)]="outreachlastname"
+
       />
       <div class="input-bottom-line"></div>
     </div>

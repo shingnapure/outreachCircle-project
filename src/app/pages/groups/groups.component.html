@@ -1,1 +1,99 @@
-<p>groups works!</p>
+<!-- <p>groups works!</p>
+<h1>Rss work</h1> -->
+<div>
+    
+
+<div class="heading">
+  <div>
+    <p class="group">Groups</p>
+  </div>
+
+  <div class="create-new-group" mat-raised-button (click)="openDialog()">
+    <div class="group-logo">
+      <div>
+      <div class="round"></div>
+      </div>
+      <div class="logo-lower-round">
+        <div class="round"></div>
+        <div class="round"></div>
+      </div>
+    </div>
+    <div class="create-group-name-parent">
+      <p class="create-group-name">Create New Group</p>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="group">
+<div class="group-none">
+    <img src="../../../assets/images/GroupsLoading.svg" alt="">
+</div>
+
+<div class="group-desc">
+    <p>
+        Use groups to segment your supporter recruitment efforts to enable large scale distributed organizing. Create groups for regions, partners, teams, staff members, languages and more.
+    </p>
+</div>
+</div>
+
+
+<div>
+<div>
+    <p class="group-count">1 Group</p>
+</div>
+
+<div *ngIf="!groupLoading">
+<div class="search">
+    <div>
+      <img src="../../../assets/images/search.svg" alt="">
+      <input type="text" placeholder="Search">
+    </div>
+</div>
+
+<div class="group-table">
+    <div *ngFor="let i of data" class="group-data">
+        <p>{{i.groupName}}</p>
+
+        <div class="group-data-name">
+            <div class="group-data-count">
+                <div>
+                <img src="../../../assets/images/Black.svg" alt="">
+                </div>
+                <p>{{i.aliasCount}}</p>
+            </div>
+            <div class="group-data-count">
+                <div>
+                <img src="../../../assets/images/Black.svg" alt="">
+                </div>
+                <p>{{i.link}}</p>
+            </div>
+            <div class="group-data-count">
+                <div>
+                <img src="../../../assets/images/Black.svg" alt="">
+                </div>
+                <p>{{i.sCount}}</p>
+            </div>
+            <div >
+                <img src="../../../assets/images/Arrow.svg" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div *ngIf="groupLoading">
+ <app-group-loading></app-group-loading>
+</div>
+
+<!-- <app-action-link-loading></app-action-link-loading> -->
+<app-action-link-after-loading></app-action-link-after-loading>
+
+
+
+
+</div>
+
+
+
+</div>

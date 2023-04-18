@@ -1,13 +1,13 @@
 <div class="sidebar-nav">
-    <div>
-        ginger group
+    <div class="outreach-name">
+       <span>{{name}}</span>
     </div>
     <ul>
         <li>
             <div><img src="../../../assets/images/dashboard.svg" /></div>
             <span>Dashboard</span>
         </li>
-        <li>
+        <li routerLink="{{linkId}}/actions" routerLinkActive="active">
             <div><img src="../../../assets/images/fadeAction.svg" /></div>
             <span>Actions</span>
         </li>
@@ -15,8 +15,8 @@
             <div><img src="../../../assets/images/fadeSupporter.svg" /></div>
             <span>Supporters</span>
         </li>
-        <li class="active">
-            <div><img src="../../../assets/images/Group.svg" /></div>
+        <li routerLink="{{linkId}}/groups" routerLinkActive="active">
+            <div><img src="../../../assets/images/fadeGroup.svg" /></div>
             <span>Groups</span>
         </li>
         <li>
@@ -28,7 +28,7 @@
             <span>Lists / Voter Files</span>
         </li>
         <li>
-            <div><img src="../../../assets/images/setting.svg" /></div>
+            <div><img src="../../../assets/images/setting.svg"/></div>
             <span>Settings</span>
         </li>
         <li>
@@ -36,7 +36,9 @@
             <span>About</span>
         </li>
     </ul>
-    <div>
-        All outreachCircles
+    <div routerLink="/user/home" class="outreach-all-link">
+        <img src="../../../assets/images/leftArrow.svg" />
+        <span>All OutreachCircles</span>
     </div>
 </div>
+
