@@ -20,6 +20,7 @@
   height: 50px;
   border: solid 1px #008caa;
   border-radius: 5px;
+  cursor: pointer;
 }
 .group-logo {
   width: 42px;

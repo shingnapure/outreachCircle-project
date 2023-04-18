@@ -1,5 +1,5 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+
 
 @Component({
   selector: 'app-sidebar',
@@ -10,8 +10,13 @@ export class SidebarComponent implements OnInit  {
   constructor() {
     
   }
+
+  @Input() linkId : string;
+  @Input() name : string;
+
   ngOnInit(): void {
     
+
   }
   
 }

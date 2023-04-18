@@ -1,0 +1,52 @@
+<div class="container">
+<div class="container-top">
+    <div>
+        <ngx-skeleton-loader
+              appearance="rectangle"
+              [theme]="{ width: '7.5625rem', height: '0.9375rem' }"
+            >
+            </ngx-skeleton-loader>
+    </div>
+    <div>
+        <ngx-skeleton-loader
+              appearance="rectangle"
+              [theme]="{ width: '4.4375rem', height: '0.9375rem' }"
+            >
+            </ngx-skeleton-loader>
+    </div>
+</div>
+
+<div class="container-mid">
+    <div>
+        <ngx-skeleton-loader
+              appearance="rectangle"
+              [theme]="{ width: '7.375rem', height: '1.75rem' }"
+            >
+            </ngx-skeleton-loader>
+    </div>
+    <div>
+        <ngx-skeleton-loader
+              appearance="rectangle"
+              [theme]="{ width: '7.375rem', height: '1.75rem' }"
+            >
+            </ngx-skeleton-loader>
+    </div>
+</div>
+
+<div *ngFor="let i of arr" class="container-mid1">
+    <ngx-skeleton-loader
+    appearance="rectangle"
+    [theme]="{ width: '25.625rem', height: '1.75rem' }"
+  >
+  </ngx-skeleton-loader>
+</div>
+
+<div class="container-lower">
+    <ngx-skeleton-loader
+              appearance="rectangle"
+              [theme]="{ width: '7.5625rem', height: '2.25rem' }"
+            >
+            </ngx-skeleton-loader>
+</div>
+
+</div>

@@ -1,15 +1,9 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
-export class DataService  implements OnInit{
-  token: string = 'oc_token';
-  constructor() {
-  }
-  ngOnInit(): void {
-      
-    }
-    
-
+export class DataService {
+  token: string = '_vc_token';
+  constructor() {}
 }

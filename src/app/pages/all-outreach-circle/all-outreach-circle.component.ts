@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { CookieService } from 'ngx-cookie-service';
 import { landing } from 'src/app/graphql/graphql.query';

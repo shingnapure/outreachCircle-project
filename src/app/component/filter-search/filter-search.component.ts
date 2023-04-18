@@ -28,6 +28,9 @@ export class FilterSearchComponent implements OnInit {
   isSearchApply : boolean = false;
   searchVal:string;
 
+  outreachname : string = '';
+  outreachadmin : string = '';
+  outreachlastname : string = '';
   @Output() getFilterValue = new EventEmitter();
   @Output() getSearchFilter = new EventEmitter();
   @Output() removeFilter = new EventEmitter();
@@ -46,6 +49,15 @@ export class FilterSearchComponent implements OnInit {
     this.displaySearch = !this.displaySearch;
     this.filterSearch = false;
   }
+
+  showInputValue(){
+    this.displaySearch = !this.displaySearch;
+    let [name , admin , lastname] = this.searchVal.split(',')
+    this.outreachname = name;
+    this.outreachadmin = admin
+    this.outreachlastname = lastname
+  }
+
 
   //Apply open/close on search model
   applySearch() {

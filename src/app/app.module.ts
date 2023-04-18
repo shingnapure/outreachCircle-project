@@ -30,6 +30,8 @@ import { ActionLinkLoadingComponent } from './loading/action-link-loading/action
 import { ActionLinkAfterLoadingComponent } from './loading/action-link-after-loading/action-link-after-loading.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { RouterModule } from '@angular/router';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CreateGroupModelComponent } from './component/create-group-model/create-group-model.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +52,8 @@ import { RouterModule } from '@angular/router';
     GroupLoadingComponent,
     ActionLinkLoadingComponent,
     ActionLinkAfterLoadingComponent,
+    GroupLoadingComponent,
+    CreateGroupModelComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,8 @@ import { RouterModule } from '@angular/router';
     NgxSkeletonLoaderModule,
     MatMenuModule,
     Ng2SearchPipeModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

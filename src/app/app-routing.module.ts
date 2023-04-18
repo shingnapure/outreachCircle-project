@@ -26,7 +26,7 @@ const routes: Routes = [
         path : '' ,
         component : DashboardComponent ,
         children : [
-          { path : ':id/groups/:gId' , component : GroupsComponent} ,
+          { path : ':id/groups' , component : GroupsComponent} ,
           { path : ':id/actions' , component : ActionsComponent}
         ]
       }

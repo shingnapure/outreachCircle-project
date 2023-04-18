@@ -4,11 +4,8 @@
   align-items: center;
   height: 4.75rem;
   background: #fefdf7;
-  position: fixed;
   padding: 0 0 0 1.5rem;
-  top: 0;
-  width: 90%;
-  z-index: 1;
+  width: 100%;
   border-bottom: 1px solid #d6d6d6;
 }
 .brand img {

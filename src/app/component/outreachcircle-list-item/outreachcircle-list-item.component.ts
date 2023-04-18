@@ -9,10 +9,13 @@ import { outreachcircleitem } from 'src/app/services/interface';
   styleUrls: ['./outreachcircle-list-item.component.css'],
 })
 export class OutreachcircleListItemComponent {
-  constructor(private routes:Router ,private services:DataService) {}
+  constructor(private routes:Router) {}
 
   @Input() outreachcircleitem : outreachcircleitem;
+
   groups(){
-    this.routes.navigate([`user/${this.outreachcircleitem.code.value}/groups/${this.outreachcircleitem.id}`])
+    console.log(this.outreachcircleitem.code.value)
+    console.log(`/user/${this.outreachcircleitem.code.value}/groups`);
+    this.routes.navigate([`user/${this.outreachcircleitem.code.value}/groups`])
   }
 }

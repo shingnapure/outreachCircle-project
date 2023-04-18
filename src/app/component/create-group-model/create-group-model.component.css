@@ -1,0 +1,87 @@
+.create-group-container {
+  width: 448px;
+  border-radius: 5px;
+  box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2),
+    0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
+  background: #fff;
+  color: rgba(0, 0, 0, 0.87);
+}
+.header-group-model {
+  background-color: #2a2a2a;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+}
+.header-group-model h1 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.group-model-body {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 30px 20px;
+}
+
+label {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 10px;
+  color: #777;
+}
+
+input {
+  border: none;
+  padding: 10px 10px 5px 0;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  line-height: 1.3rem;
+  flex: 1;
+}
+.create-groups-btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 10px;
+}
+button {
+  border: 1px solid #008caa;
+  border-radius: 3px;
+  padding: 10px 20px;
+  background-color: #fff;
+  width: 110px;
+  color: #008caa;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form-control-input:focus-within label {
+  color: #2493af;
+}
+
+.form-control-input:focus-within .input-bottom-line {
+  background-color: teal;
+  height: 2px;
+  margin: auto;
+  animation: line 0.2s ease-out forwards;
+}
+
+.input-text {
+  display: flex;
+  justify-content: space-between;
+}
+
+.disbled-btn-continue {
+  background: #d6d6d6;
+  color: #fff;
+  border: 1px solid #d6d6d6;
+}
+
+small{
+  font-size: 12px;
+  color: #777;
+}

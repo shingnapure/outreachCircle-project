@@ -25,3 +25,22 @@ export const userLogout = gql`
     logout
   }
 `;
+
+export const createGroups = gql`
+mutation createGroup($input: CreateGroupInput!) {
+  createGroup(input: $input) {
+    id
+    name
+    supporterCount
+    aliasCount
+    actionCount
+    aliases {
+      id
+      name
+      value
+      supporterCount
+      __typename
+    }
+    __typename
+  }
+}`
