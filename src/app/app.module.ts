@@ -25,9 +25,11 @@ import { GroupsComponent } from './pages/groups/groups.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ActionsComponent } from './pages/actions/actions.component';
 import { UserHomeSidenavComponent } from './component/user-home-sidenav/user-home-sidenav.component';
-import { ActionLinkAfterLoadingComponent } from './loading/action-link-after-loading/action-link-after-loading.component';
-import { ActionLinkLoadingComponent } from './loading/action-link-loading/action-link-loading.component';
 import { GroupLoadingComponent } from './loading/group-loading/group-loading.component';
+import { ActionLinkLoadingComponent } from './loading/action-link-loading/action-link-loading.component';
+import { ActionLinkAfterLoadingComponent } from './loading/action-link-after-loading/action-link-after-loading.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CreateGroupModelComponent } from './component/create-group-model/create-group-model.component';
 @NgModule({
@@ -47,8 +49,9 @@ import { CreateGroupModelComponent } from './component/create-group-model/create
     DashboardComponent,
     ActionsComponent,
     UserHomeSidenavComponent,
-    ActionLinkAfterLoadingComponent,
+    GroupLoadingComponent,
     ActionLinkLoadingComponent,
+    ActionLinkAfterLoadingComponent,
     GroupLoadingComponent,
     CreateGroupModelComponent,
   ],
@@ -62,7 +65,8 @@ import { CreateGroupModelComponent } from './component/create-group-model/create
     NgxSkeletonLoaderModule,
     MatMenuModule,
     Ng2SearchPipeModule,
-    MatDialogModule,
+    MatTabsModule,
+    MatDialogModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

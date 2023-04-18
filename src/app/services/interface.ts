@@ -65,3 +65,62 @@ export interface userbytoken {
   
 }
 
+
+export interface Groups{
+  getGroupsByOutreachCircle:{
+  items: {
+    id:string
+    name:string
+    supporterCount:number
+    actionCount:number
+    aliasCount:number
+  }
+  }
+}
+export interface IndividualGroupActionLink{
+  group: {
+    id:string
+    name:string
+    supporterCount:number
+    actionCount:number
+    aliasCount:number
+    aliases: {
+      id:string
+      value:string
+      supporterCount:number
+      name:string
+      sharableUrl:string
+    }
+    actions: {
+      total:number
+      items :{
+        id:string
+        type:string
+        name:string
+        status:string
+      }
+    }
+  }
+}
+
+
+export interface groupdata{
+    id: String;
+    name:String;
+    supporterCount: Number;
+    actionCount:Number;
+    aliasCount:Number;
+    aliases: [];
+    actions: {
+        total: Number;
+        items: [
+            {
+                id:  String,
+                type: String,
+                name:  String,
+                status:  String
+            }
+        ]
+    }
+}
+

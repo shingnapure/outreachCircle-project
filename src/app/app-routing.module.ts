@@ -14,13 +14,13 @@ const routes: Routes = [
   {
     path: 'user',
     component: UserComponent,
-    canActivate: [IsloggedService],
+    canActivate: [ IsloggedService ],
     children: [
       {
         path: 'home',
         component: HomeComponent,
         children: [
-          {path: '', component: AllOutreachCircleComponent },
+          { path: '', component: AllOutreachCircleComponent },
         ],
       } , {
         path : '' ,

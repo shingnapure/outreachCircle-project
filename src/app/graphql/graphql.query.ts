@@ -57,8 +57,55 @@ export const landing = gql`
   }
 `;
 
-export const outreachByAlias = gql`
-query outreachCircleByAlias($alias: String!) {
+export const allGroup=gql`
+query getGroupsByOutreachCircle($input: GetGroupsInput!) {
+  getGroupsByOutreachCircle(input: $input) {
+    items {
+      id
+      name
+      supporterCount
+      actionCount
+      aliasCount
+      __typename
+    }
+    total
+    __typename
+  }
+}
+`
+
+export const individualGroup=gql`
+query group($id: ID!) {
+  group(id: $id) {
+    id
+    name
+    supporterCount
+    actionCount
+    aliasCount
+    aliases {
+      id
+      value
+      supporterCount
+      name
+      sharableUrl
+      __typename
+    }
+    actions {
+      total
+      items {
+        id
+        type
+        name
+        status
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}
+`
+export const outreachByAlias=gql`query outreachCircleByAlias($alias: String!) {
   outreachCircleByAlias(alias: $alias) {
     id
     name

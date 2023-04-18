@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Apollo } from 'apollo-angular';
+import { Apollo, gql } from 'apollo-angular';
 import { CookieService } from 'ngx-cookie-service';
-import { outreachByAlias } from 'src/app/graphql/graphql.query';
+import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
+import { outreachByAlias } from 'src/app/graphql/graphql.query';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,27 +11,32 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  linkId:string=''
+name:string=''
 
-  constructor(private router : Router , private apollo : Apollo , private cookies : CookieService , private dataService : DataService) {
-    
-  }
+  constructor(private apollo:Apollo,
+              private cookies:CookieService,
+              private router:Router,
+              private service:DataService) { }
 
-  linkId : string;
-  name : string; 
+  aliasID:string=''
   ngOnInit(): void {
-    this.linkId = this.router.url.split('/')[2]
-
-    this.apollo.query<any>({
-      query : outreachByAlias ,
-      variables : {
-        "alias": this.linkId
-      },
-      context: {
-        headers: { Authorization: this.cookies.get(this.dataService.token) },
-      }
-    }).subscribe(({ data }) => {
-      this.name = data.outreachCircleByAlias.name
-    });
+    this.linkId=this.router.url.split("/")[2]
+    this.apollo
+      .query<any>({
+        query: outreachByAlias
+      ,
+        variables:{
+          alias: this.linkId
+        },
+        context: {
+          headers: { Authorization: this.cookies.get(this.service.token) },
+        },
+      })
+      .subscribe(({data}) => {
+       this.name=data.outreachCircleByAlias.name
+         
+      });
   }
-
+  
 }

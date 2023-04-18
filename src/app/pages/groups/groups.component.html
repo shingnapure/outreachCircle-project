@@ -1,99 +1,143 @@
 <!-- <p>groups works!</p>
 <h1>Rss work</h1> -->
-<div>
-    
-
-<div class="heading">
-  <div>
-    <p class="group">Groups</p>
-  </div>
-
-  <div class="create-new-group" mat-raised-button (click)="openDialog()">
-    <div class="group-logo">
-      <div>
-      <div class="round"></div>
-      </div>
-      <div class="logo-lower-round">
-        <div class="round"></div>
-        <div class="round"></div>
-      </div>
-    </div>
-    <div class="create-group-name-parent">
-      <p class="create-group-name">Create New Group</p>
-    </div>
-  </div>
-</div>
-
-<div *ngIf="group">
-<div class="group-none">
-    <img src="../../../assets/images/GroupsLoading.svg" alt="">
-</div>
-
-<div class="group-desc">
-    <p>
-        Use groups to segment your supporter recruitment efforts to enable large scale distributed organizing. Create groups for regions, partners, teams, staff members, languages and more.
-    </p>
-</div>
-</div>
-
-
-<div>
-<div>
-    <p class="group-count">1 Group</p>
-</div>
-
-<div *ngIf="!groupLoading">
-<div class="search">
+<div class="groups">
+  <div class="heading">
     <div>
-      <img src="../../../assets/images/search.svg" alt="">
-      <input type="text" placeholder="Search">
+      <p class="group">Groups</p>
     </div>
-</div>
 
-<div class="group-table">
-    <div *ngFor="let i of data" class="group-data">
-        <p>{{i.groupName}}</p>
-
-        <div class="group-data-name">
-            <div class="group-data-count">
-                <div>
-                <img src="../../../assets/images/Black.svg" alt="">
-                </div>
-                <p>{{i.aliasCount}}</p>
-            </div>
-            <div class="group-data-count">
-                <div>
-                <img src="../../../assets/images/Black.svg" alt="">
-                </div>
-                <p>{{i.link}}</p>
-            </div>
-            <div class="group-data-count">
-                <div>
-                <img src="../../../assets/images/Black.svg" alt="">
-                </div>
-                <p>{{i.sCount}}</p>
-            </div>
-            <div >
-                <img src="../../../assets/images/Arrow.svg" alt="">
-            </div>
+    <div class="create-new-group" mat-raised-button (click)="openDialog()">
+      <div class="group-logo">
+        <div>
+          <div class="round"></div>
         </div>
+        <div class="logo-lower-round">
+          <div class="round"></div>
+          <div class="round"></div>
+        </div>
+      </div>
+      <div class="create-group-name-parent">
+        <p class="create-group-name">Create New Group</p>
+      </div>
     </div>
-</div>
-</div>
+  </div>
 
+  <div *ngIf="!groupLoading">
+    <div *ngIf="groupData.length != 0">
+      <div>
+        <p class="group-count" *ngIf="groupData.length === 1">
+          {{ groupData.length }} Group
+        </p>
+        <p class="group-count" *ngIf="groupData.length > 1">
+          {{ groupData.length }} Groups
+        </p>
+      </div>
 
-<div *ngIf="groupLoading">
- <app-group-loading></app-group-loading>
-</div>
+      <div *ngIf="!groupLoading">
+        <div class="search">
+          <div>
+            <img src="../../../assets/images/search.svg" alt="" />
+            <input type="text" placeholder="Search" [(ngModel)]="searchText" />
+          </div>
+        </div>
 
-<!-- <app-action-link-loading></app-action-link-loading> -->
-<app-action-link-after-loading></app-action-link-after-loading>
+        <div>
+          <div class="group-table">
+            <div
+              *ngFor="let i of groupData | filter : searchText"
+              class="group-data"
+              (click)="handleGroup(i.id)"
+            >
+              <p>{{ i.name }}</p>
 
+              <div class="group-data-name">
+                <div class="tooltip">
+                  <span class="tooltiptext">Active Actions</span>
+                  <div class="group-data-count">
+                    <div *ngIf="i.actionCount >= 1">
+                      <img
+                        src="../../../assets/images/Action.svg"
+                        alt=""
+                        class="count"
+                      />
+                    </div>
+                    <div *ngIf="i.actionCount === 0">
+                      <img
+                        src="../../../assets/images/Action.svg"
+                        alt=""
+                        class="count-none"
+                      />
+                    </div>
+                    <p>{{ i.actionCount }}</p>
+                  </div>
+                </div>
 
+                <div class="tooltip">
+                  <span class="tooltiptext">Supporter recruitment list</span>
+                  <div class="group-data-count">
+                    <div *ngIf="i.aliasCount >= 1">
+                      <img
+                        src="../../../assets/images/Link.svg"
+                        alt=""
+                        class="count"
+                      />
+                    </div>
+                    <div *ngIf="i.aliasCount === 0">
+                      <img
+                        src="../../../assets/images/Link.svg"
+                        alt=""
+                        class="count-none"
+                      />
+                    </div>
+                    <p>{{ i.aliasCount }}</p>
+                  </div>
+                </div>
 
+                <div class="group-data-count">
+                  <div>
+                    <img
+                      src="../../../assets/images/Black.svg"
+                      alt=""
+                      class="count"
+                    />
+                  </div>
+                  <p>{{ i.supporterCount }}</p>
+                </div>
 
-</div>
+                <div>
+                  <img src="../../../assets/images/Arrow.svg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
 
+          <div class="group-desc">
+            <app-action-link-after-loading
+              [individualId]="individaulGroupId"
+              *ngIf="actionLoading"
+              (closeModal)="getData($event)"
+            ></app-action-link-after-loading>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div *ngIf="groupData.length < 1">
+      <div class="group-none">
+        <img src="../../../assets/images/GroupsLoading.svg" alt="" />
+      </div>
 
+      <div class="group-none-desc">
+        <p>
+          Use groups to segment your supporter recruitment efforts to enable
+          large scale distributed organizing. Create groups for regions,
+          partners, teams, staff members, languages and more.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="groupLoading">
+    <app-group-loading></app-group-loading>
+  </div>
 </div>

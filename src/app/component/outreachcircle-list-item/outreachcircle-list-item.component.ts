@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, Input, OnInit, } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
 import { outreachcircleitem } from 'src/app/services/interface';
 
 @Component({
@@ -8,7 +9,7 @@ import { outreachcircleitem } from 'src/app/services/interface';
   styleUrls: ['./outreachcircle-list-item.component.css'],
 })
 export class OutreachcircleListItemComponent {
-  constructor(private routes:Router , private activeRouter : ActivatedRoute) {}
+  constructor(private routes:Router) {}
 
   @Input() outreachcircleitem : outreachcircleitem;
 

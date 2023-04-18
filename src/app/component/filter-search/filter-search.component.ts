@@ -152,7 +152,14 @@ export class FilterSearchComponent implements OnInit {
 
   // remove the filter
   getAllData(){
+    if(this.checkedList.length===this.countrydata.countryList.length)
+    {
+    this.uncheckValues()
     this.isAllSelected()
+    }else{
+
+    this.isAllSelected()
+    }
     this.removeFilter.emit('filter')
     this.displayStateCount = false
     
