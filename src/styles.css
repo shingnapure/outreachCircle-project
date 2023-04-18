@@ -22,7 +22,7 @@ body {
 .container {
   background-color: #fff;
   margin: auto;
-  width: 90%;
+  width: 1280px;
   position: relative;
   height: 100vh;
 }
