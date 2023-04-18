@@ -1,0 +1,26 @@
+.container{
+    border: 1px solid #2493af;
+    background-color: #ffff;
+    padding: 1rem;
+}
+.container-top{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 21px;
+}
+.container-mid{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 63px;
+}
+.container-lower{
+    display: flex;
+    justify-content: center;
+}
+.container-mid1{
+    display: flex;
+    justify-content: center;
+}
+.container-mid1:last-child{
+    margin-bottom: 35px;
+}

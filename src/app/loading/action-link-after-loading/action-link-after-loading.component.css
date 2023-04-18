@@ -1,0 +1,254 @@
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 180px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.container-data {
+  width: 540px;
+  height: calc(100vh-1rem);
+}
+.container-loading {
+  width: 600px;
+  padding: 1rem;
+}
+.container-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 21px;
+}
+.container-mid {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 63px;
+}
+.container-lower {
+  display: flex;
+  justify-content: center;
+}
+.container-mid1 {
+  display: flex;
+  justify-content: center;
+}
+.container-mid1:last-child {
+  margin-bottom: 35px;
+}
+
+.container {
+  background-color: #ffff;
+  border: 1px solid #2493af;
+}
+
+.container-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3.1875rem;
+  background-color: #f2f9fb;
+}
+.container-heading > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.supporters {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 1.2rem;
+}
+.supporters > p {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 19px;
+  color: #2a2a2a;
+}
+.icon {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-right: 1rem;
+}
+.icon > div {
+  /* d5eaee */
+  width: 1.6rem;
+  height: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: solid 1px red; */
+  border-radius: 50%;
+  background-color: #d5eaee;
+}
+.icon > div:hover {
+  background-color: #2493af;
+  cursor: pointer;
+}
+.icon > div > img:hover {
+  filter: invert(96%) sepia(0%) saturate(15%) hue-rotate(288deg)
+    brightness(104%) contrast(105%);
+}
+.mat-ink-bar {
+  color: red;
+}
+.action-link {
+  width: 100%;
+}
+.action-link > div {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.action-link > div > p {
+  padding: 1rem 0 1rem 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #008caa;
+}
+.action-link > div > img {
+  filter: invert(33%) sepia(49%) saturate(2560%) hue-rotate(165deg)
+    brightness(95%) contrast(101%);
+}
+.logo-loading {
+  display: flex;
+  justify-content: center;
+  margin-top: 90px;
+}
+.add-action {
+  text-align: center;
+  margin-top: 30px;
+  padding: 0 2rem 0 2rem;
+  font-weight: 400;
+  font-size: 16px;
+  color: #2a2a2a;
+}
+.button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 150px;
+  padding-right: 5rem;
+  padding-bottom: 40px;
+}
+.button > button {
+  background-color: #008caa;
+  gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.button > button {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+}
+
+.action {
+  margin-top: 15px;
+}
+.action-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 0.5rem 0;
+  border-bottom: 1px solid #cccccc;
+  width: 75%;
+  margin: auto;
+}
+.action-data > div {
+  display: flex;
+  gap: 1rem;
+  margin-top: 30px;
+}
+.action-type {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #2a2a2a;
+}
+.action-name {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  color: #777777;
+}
+.action-status {
+  font-weight: 700;
+  font-size: 9px;
+  line-height: 16px;
+  background-color: green;
+  padding: .3rem .5rem;
+  border-radius: 12px;
+  letter-spacing: 0.63px;
+  color: #ffffff;
+}
+.link{
+  margin-top: 30px;
+}
+.link-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 0 1.5rem 0.5rem 1.5rem; */
+  width: 85%;
+  margin: auto;
+}
+.link-name {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #2a2a2a;
+}
+.link-value {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  color: #555555;
+}
+.edit-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+.edit-parent:hover {
+  background-color: rgb(223, 211, 211);
+  cursor: pointer;
+}
+
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+  background-color: #f2f9fb;
+  }
+  
+  ::ng-deep .mat-tab-list .mat-tab-labels {
+  color:blue;
+  background-color: #f2f9fb;
+  }
+  ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    
+    background-color: #008caa;
+}

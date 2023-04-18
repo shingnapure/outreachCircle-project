@@ -15,9 +15,21 @@ import { UserComponent } from './pages/user/user.component';
 import { AllOutreachCircleComponent } from './pages/all-outreach-circle/all-outreach-circle.component';
 import { LoginFormComponent } from './component/login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
-import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { SkeletonComponent } from './skeleton/skeleton.component';
-
+import { CookieService } from 'ngx-cookie-service';
+import { MatMenuModule } from '@angular/material/menu';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { IsloggedService } from './services/islogged.service';
+import { GroupsComponent } from './pages/groups/groups.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ActionsComponent } from './pages/actions/actions.component';
+import { UserHomeSidenavComponent } from './component/user-home-sidenav/user-home-sidenav.component';
+import { GroupLoadingComponent } from './loading/group-loading/group-loading.component';
+import { ActionLinkLoadingComponent } from './loading/action-link-loading/action-link-loading.component';
+import { ActionLinkAfterLoadingComponent } from './loading/action-link-after-loading/action-link-after-loading.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +43,13 @@ import { SkeletonComponent } from './skeleton/skeleton.component';
     AllOutreachCircleComponent,
     LoginFormComponent,
     SkeletonComponent,
+    GroupsComponent,
+    DashboardComponent,
+    ActionsComponent,
+    UserHomeSidenavComponent,
+    GroupLoadingComponent,
+    ActionLinkLoadingComponent,
+    ActionLinkAfterLoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,9 +58,12 @@ import { SkeletonComponent } from './skeleton/skeleton.component';
     HttpClientModule,
     GraphQLModule,
     FormsModule,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    MatMenuModule,
+    Ng2SearchPipeModule,
+    MatTabsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [CookieService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

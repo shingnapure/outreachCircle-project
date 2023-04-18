@@ -17,23 +17,20 @@
         [(ngModel)]="email"
         email
         required
+        autocomplete="off"
       />
       <img
         src="../../../assets/images/crossIcon.svg"
-        (click)="handleClose(emailInput)"
-        width="15px"
-        height="15px"
-        *ngIf="(emailInput.value != '' && emailInput.dirty) || email == '' "
+        (click)="handleCloseOnInput(emailInput)"
+        *ngIf="handleCloseInputIcon(emailInput , email)"
       />
     </div>
-
     <div class="input-bottom-line"></div>
     <div>
-      <small *ngIf="emailInput.invalid && emailInput.value"
-        >Invalid email address</small
-      >
+      <small [ngStyle]="{opacity : emailInput.invalid && emailInput.value ? '1' : '0'}"
+        >Invalid email address</small>
 
-      <small *ngIf="(email == '') || error">{{ emailError }}</small>
+      <small *ngIf="email == '' || error" [ngStyle]="{marginLeft : email == '' || error ? '-115px' : '0'}">{{ emailError }}</small>
     </div>
   </div>
   <div
@@ -43,33 +40,32 @@
     <label> password </label>
     <div class="input-text">
       <input
-        type="text"
+        type="password"
         placeholder="Enter password"
         ngModel
         name="password"
         required
         #passwordInput="ngModel"
         [(ngModel)]="password"
+        autocomplete="off"
       />
       <img
         src="../../../assets/images/crossIcon.svg"
-        (click)="handleClose(passwordInput)"
+        (click)="handleCloseOnInput(passwordInput)"
         width="15px"
         height="15px"
-        *ngIf="
-          (passwordInput.value != '' && passwordInput.dirty) || password == ''
-        "
+        *ngIf="handleCloseInputIcon(passwordInput , password)"
       />
     </div>
     <div class="input-bottom-line"></div>
     <div>
-      <small *ngIf="(password == '') || error">{{ passwordError }}</small>
+      <small  [ngStyle]="{opacity : (password == '' || error) ? '1' : '0'}">{{ passwordError }}</small>
     </div>
   </div>
   <div>
     <input
       type="submit"
-      value="{{ loading ? loadingImg : 'Login with email'}}"
+      value="{{ loading ? loadingImg : 'Login with email' }}"
       class="login-btn"
       [disabled]="!loginForm.valid"
       [ngClass]="{ 'disbled-btn': !loginForm.valid }"

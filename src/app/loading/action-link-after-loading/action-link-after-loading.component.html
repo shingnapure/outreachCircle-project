@@ -1,0 +1,161 @@
+<div class="container">
+
+<div class="container-data " *ngIf="!actionLinkLoading">
+    <div class="container-heading">
+        <div class="supporters">
+            <img src="../../../assets/images/Black.svg" alt="">
+            <p>Supporters ({{groupValues.group.supporterCount}})</p>
+
+        </div>
+        <div class="icon">
+            <div class="tooltip"><span class="tooltiptext">Preview action feed</span></div>
+            <div class="tooltip"><span class="tooltiptext">More Options</span><img src="../../../assets/images/groups/TripleDot.svg" alt=""> </div>
+            <div class="tooltip" (click)="closeAction(false)"><span class="tooltiptext" >Close group View</span><img src="../../../assets/images/groups/Cross.svg" alt=""> </div>
+        </div>
+    </div>
+
+  <mat-tab-group mat-align-tabs="center">
+        <mat-tab backgroundColor="#f2f9fb" border-bottom="none">
+          <ng-template mat-tab-label>
+              <div class="action-link">
+                  <div>
+                      <img src="../../../assets/images/Action.svg" alt="">
+                      <p>Actions ({{groupValues.group.actionCount}})</p>
+                  </div>
+              </div>
+      
+              
+          </ng-template>
+      
+          <div *ngIf="groupValues.group.actionCount===0">
+              <div class="logo-loading">
+                 <img src="../../../assets/images/Action-Loading.svg" alt="">
+              </div>
+              <p class="add-action">To add an action, click the ‘Add Action’ button and select an existing action.</p>
+          </div>
+          <div *ngIf="groupValues.group.actionCount>0" class="action">
+              <div *ngFor="let actionval of groupValues.group.actions.items" class="action-data">
+                      <div>
+                          <div><img src="../../../assets/images/groups/action_message_friends_icon.svg" alt=""></div>
+                          <div>
+                              <p class="action-type">{{actionval.type}}</p>
+                              <p class="action-name">{{actionval.name}}</p>
+                          </div>
+                      </div>
+                      <div>
+                          <div><p class="action-status">{{actionval.status}}</p></div>
+                          <div class='edit-parent'><img src="../../../assets/images/groups/Triple.svg" alt=""></div>
+                      </div>
+                      
+                  
+              </div>
+          </div>
+      
+      
+          <div class="button">
+          <button >
+              <img src="../../../assets/images/groups/Shape.svg" alt="">
+              <p>Add Action</p>
+          </button>
+          </div>
+        </mat-tab>
+      
+      
+        <mat-tab label="Second">
+          <ng-template mat-tab-label>
+              <div class="action-link">
+                  <div>
+                      <img src="../../../assets/images/Link.svg" alt="">
+                      <p>Links ({{groupValues.group.aliasCount}})</p>
+      
+                  </div>
+              </div>
+      
+              
+          </ng-template>
+          <div *ngIf="groupValues.group.aliasCount===0">
+          <div class="logo-loading">
+              <img src="../../../assets/images/groups/Links.svg" alt="">
+          </div>
+          <p class="add-action">To add a link, click the ‘Add Link’ button and select an existing link.</p>
+          </div>
+      
+          <div *ngIf="groupValues.group.aliasCount>0" class="link">
+              <div *ngFor="let linkVal of groupValues.group.aliases" class="link-data">
+                  <div>
+                      <p class="link-name">{{linkVal.name}}</p>
+                      <p class="link-value">App Code : {{linkVal.value}}</p>
+                  </div>
+                  <div class="edit-parent"><img src="../../../assets/images/groups/Triple.svg" alt=""></div>
+              </div>
+          </div>
+
+          <div class="button">
+          <button >
+              <img src="../../../assets/images/groups/Link-btn.svg" alt="">
+              <p>Add Link</p>
+          </button>
+          </div>
+      
+        </mat-tab>
+      </mat-tab-group>
+  
+
+</div>
+
+
+<div *ngIf="actionLinkLoading" class="container-loading">
+    <div class="container-top" >
+        <div>
+            <ngx-skeleton-loader
+                  appearance="rectangle"
+                  [theme]="{ width: '7.5625rem', height: '0.9375rem' }"
+                >
+                </ngx-skeleton-loader>
+        </div>
+        <div>
+            <ngx-skeleton-loader
+                  appearance="rectangle"
+                  [theme]="{ width: '4.4375rem', height: '0.9375rem' }"
+                >
+                </ngx-skeleton-loader>
+        </div>
+    </div>
+    
+    <div class="container-mid">
+        <div>
+            <ngx-skeleton-loader
+                  appearance="rectangle"
+                  [theme]="{ width: '7.375rem', height: '1.75rem' }"
+                >
+                </ngx-skeleton-loader>
+        </div>
+        <div>
+            <ngx-skeleton-loader
+                  appearance="rectangle"
+                  [theme]="{ width: '7.375rem', height: '1.75rem' }"
+                >
+                </ngx-skeleton-loader>
+        </div>
+    </div>
+    
+    <div *ngFor="let i of arr" class="container-mid1">
+        <ngx-skeleton-loader
+        appearance="rectangle"
+        [theme]="{ width: '25.625rem', height: '1.75rem' }"
+      >
+      </ngx-skeleton-loader>
+    </div>
+    
+    <div class="container-lower">
+        <ngx-skeleton-loader
+                  appearance="rectangle"
+                  [theme]="{ width: '7.5625rem', height: '2.25rem' }"
+                >
+                </ngx-skeleton-loader>
+    </div> 
+</div>
+
+
+</div>
+

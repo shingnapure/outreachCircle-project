@@ -1,1 +1,170 @@
-<p>filter-search works!</p>
+<div class="container-filter">
+  <!-- search -->
+  <div class="search" >
+    <div *ngIf="!isSearchApply ; else searchApply">
+      <img src="../../../assets/images/search.svg" />
+      <button class="input"  (click)="search()"   placeholder="Search">Search</button>
+    </div>
+    <ng-template #searchApply>
+      <button class="input input-with-value">
+        <span>{{ searchVal  }}</span>
+        <img src="../../../assets/images/crossIcon.svg" (click)="removeSearch()"/>
+      </button>
+    </ng-template> 
+  </div>
+  <!-- Filter -->
+  <div class="filter" (click)="filter()">
+    <button>
+      <span>Filter by State</span>
+      <img src="../../../assets/images/white-arrow.svg" />
+    </button>
+  </div>
+  
+  <div class="stateCount" *ngIf="displayStateCount">
+    <img src="../../../assets/images/tealcross.svg" (click)="getAllData()"/>
+    <span>State ({{checkedList.length }})</span>
+    <img src="../../../assets/images/tealdownarrow.svg"/>
+  </div>
+</div>
+
+
+<!-- Search model -->
+<div class="search-filter-model" *ngIf="displaySearch">
+  <div class="model-header">
+    <div class="search-title">
+      <img src="../../../assets/images/search.svg" />
+      <span class="search-name"> Search by the following </span>
+    </div>
+    <p class="cross" (click)="closeSearch()">
+      <img src="../../../assets/images/Path.svg" />
+    </p>
+  </div>
+  <form (ngSubmit)="applySearch()" class="form-control" #searchOc="ngForm">
+    <div class="input-parent">
+      <label>OutreachCircle Name</label>
+      <input
+        type="text"
+        class="oc-name"
+        name="name"
+        ngModel
+        autocomplete="off"
+      />
+      <div class="input-bottom-line"></div>
+    </div>
+    <div class="input-parent">
+      <label>Admin First Name</label>
+      <input
+        type="text"
+        class="first-name"
+        name="adminFirstName"
+        ngModel
+        autocomplete="off"
+      />
+      <div class="input-bottom-line"></div>
+    </div>
+
+    <div class="input-parent">
+      <label>Admin Last Name</label>
+      <input
+        type="text"
+        class="last-name"
+        name="adminLastName"
+        ngModel
+        autocomplete="off"
+      />
+      <div class="input-bottom-line"></div>
+    </div>
+    <div class="apply">
+      <button type="submit">Apply</button>
+    </div>
+  </form>
+</div>
+
+<!-- Filter model -->
+<div class="filter-box" *ngIf="filterSearch">
+  <div class="filter-header">
+    <div class="filter-header-name">
+      <img src="../../../assets/images/Triple.png" alt="" />
+      <p>Filter by State</p>
+    </div>
+
+    <div>
+      <img
+        (click)="closeFilter()"
+        class="closeFilter"
+        src="../../../assets/images/Path.svg"
+        alt=""
+      />
+    </div>
+  </div>
+
+  <div class="filterSearch">
+    <img src="../../../assets/images/filterSearch.png" alt="" />
+    <input type="text" placeholder="Search" [(ngModel)]="searchText" />
+  </div>
+
+  <div class="select-all">
+    <div class="custom-checkbox-container">
+      <input
+        type="checkbox"
+        [(ngModel)]="masterSelected"
+        (change)="isAllSelected()"
+        name="allCountries"
+      />
+      <div class="custom-checkbox"></div>
+    </div>
+    <label
+      *ngIf="
+        checkedList.length >= 1 &&
+        countrydata.countryList.length !== checkedList.length
+      "
+      >{{ checkedList.length }} Out of
+      {{ countrydata.countryList.length }} selected</label
+    >
+    <label *ngIf="checkedList.length == 0"
+      >Select all ({{ countrydata.countryList.length }})</label
+    >
+    <label *ngIf="countrydata.countryList.length === checkedList.length"
+      >All ({{ checkedList.length }}) selected</label
+    >
+  </div>
+
+  <div
+    [ngClass]="
+      searchText === '' ? 'country-data' : 'country-data-withotSearchText'
+    "
+  >
+    <div
+      *ngFor="let item of countrydata.countryList | filter : searchText"
+      class="country-input"
+    >
+      <div class="custom-checkbox-container">
+        <input
+          type="checkbox"
+          class="check"
+          value="{{ item.code }}"
+          name="country"
+          [(ngModel)]="item.isSelected"
+          (change)="checkUncheck()"
+        />
+        <div class="custom-checkbox"></div>
+      </div>
+      <label for="">{{ item.country }}</label>
+    </div>
+  </div>
+
+  <div class="exclude" *ngIf="showExclude && checkedList.length !== 0">
+    <div>
+      <div class="custom-checkbox-container">
+        <input type="checkbox" name="exclude" (change)="exclude()" />
+        <div class="custom-checkbox"></div>
+      </div>
+      <label for="">Exclude States</label>
+    </div>
+    <div>
+      <button class="filter-apply" (click)="applyFilter()">
+        Apply
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,21 @@
-<div>
-    <img src="../../../assets/images/Email white.svg"/>
+<div class="navbar">
+  <div class="brand">
+    <img src="../../../assets/images/Email white.svg" />
+  </div>
+  <div class="user" mat-button [matMenuTriggerFor]="navMenu">
+    <div class="user-logo">
+      <img src="../../../assets/images/user-logo.svg" />
+    </div>
+    <div class="user-details">
+      <div class="name">{{ fullName }}</div>
+      <div class="email">{{ username }}</div>
+    </div>
+
+    <div class="logout-btn">
+      <a> <img src="../../../assets/images/down-arrow.svg" /> </a>
+    </div>
+  </div>
+  <mat-menu #navMenu="matMenu">
+    <button mat-menu-item (click)="logout()">logout</button>
+  </mat-menu>
 </div>

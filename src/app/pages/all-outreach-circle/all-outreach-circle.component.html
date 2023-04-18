@@ -1,12 +1,34 @@
 <main>
-<h1>All OutreachCircles</h1>
-<h2>You are an admin for 8 OutreachCircles</h2>
-<app-filter-search></app-filter-search>
-<!-- <div *ngFor="let item of outercircleList"> -->
-<!-- </div> -->
+  <div class="home-body">
+    <div class="title">All OutreachCircles</div>
+    <div class="sub-title">
+      <span *ngIf="sizeOfOc != 0">You are an admin for {{ sizeOfOc }} OutreachCircles</span>
+      <span *ngIf="sizeOfOc == 0">No OutreachCircles Found.</span>
+    </div>
+    <app-filter-search
+      (getFilterValue)="filterValues($event)"
+      (getSearchFilter)="searchValues($event)"
+      (removeFilter)="handleRemoveFilter($event)"
+    ></app-filter-search>
+    <div *ngIf="!fetching" class="oc-data">
 
-<app-outreachcircle-list-item></app-outreachcircle-list-item>
+      <div *ngIf="outercircleList.length != 0 ; else emptyValues">
+        <div *ngFor="let item of outercircleList">
+          <app-outreachcircle-list-item
+            [outreachcircleitem]="item"
+          ></app-outreachcircle-list-item>
+        </div>
+      </div>
+      <ng-template #emptyValues>
+        <div class="not-found">
+          <p>No OutreachCircles found matching the search/filter criteria.</p>
+          <button (click)="handleRemoveFilter(true)">clear search</button>
+        </div>
+      </ng-template>
+      
+    </div>
+    <div *ngIf="fetching">
+      <app-skeleton></app-skeleton>
+    </div>
+  </div>
 </main>
-
-
-
