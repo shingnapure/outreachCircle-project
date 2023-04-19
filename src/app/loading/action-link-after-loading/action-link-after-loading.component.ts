@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { CookieService } from 'ngx-cookie-service';
 import { individualGroup } from 'src/app/graphql/graphql.query';
@@ -18,6 +18,7 @@ arr=[1,2,3,4,5,6,7,8]
   constructor(
     private apollo:Apollo,private cookies:CookieService,private service:DataService
   ) { }
+   
   ngOnInit(): void {
     console.log("individaulGroupId",this.individualId);
     this.actionLinkLoading=true
