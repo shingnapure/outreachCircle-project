@@ -41,12 +41,13 @@
           </div>
         </div>
 
-        <div>
-          <div class="group-table">
+        <div class="outreach-list" [ngClass]="{'active-outreach-list' : actionLoading}">
+          <div class="group-table" >
             <div
               *ngFor="let i of groupData | filter : searchText"
               class="group-data"
               (click)="handleGroup(i.id)"
+              [ngClass]="{ 'active-item' : individaulGroupId == i.id && actionLoading}"
             >
               <p>{{ i.name }}</p>
 
