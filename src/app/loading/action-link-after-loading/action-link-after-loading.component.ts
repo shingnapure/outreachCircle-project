@@ -1,3 +1,4 @@
+
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Apollo } from 'apollo-angular';
@@ -22,6 +23,7 @@ arr=[1,2,3,4,5,6,7,8]
     private apollo:Apollo,private cookies:CookieService,private service:DataService,
           public dialog: MatDialog
   ) { }
+   
   ngOnInit(): void {
 
     this.actionLinkLoading=true

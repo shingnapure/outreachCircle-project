@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component,  OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 import { Apollo, gql } from "apollo-angular";
@@ -13,7 +13,7 @@ import { Groups, allGroupData } from "src/app/services/interface";
   templateUrl: "./groups.component.html",
   styleUrls: ["./groups.component.css"],
 })
-export class GroupsComponent implements OnInit {
+export class GroupsComponent implements OnInit  {
   href:string=''
   groupID:string=''
   groupName:string=''
@@ -30,9 +30,12 @@ export class GroupsComponent implements OnInit {
     private service: DataService,
     private cookies: CookieService,
     private router:Router,
-    private dialog:MatDialog
+    private dialog:MatDialog,
+    private cdRef:ChangeDetectorRef
 
   ) {}
+
+  
 
   openDialog(){
     this.dialog.open(CreateGroupModelComponent)
@@ -41,6 +44,7 @@ export class GroupsComponent implements OnInit {
     this.href=(this.router.url).split("/")[2]
     console.log("HREF",this.href);
     this.fetchAlias()
+
 
   }
   fetchAlias(){
@@ -96,13 +100,21 @@ export class GroupsComponent implements OnInit {
       });
   }
 
+
   handleGroup(index: string,groupname:string) {
     this.service.editGroup(index,groupname)
-    
     this.individaulGroupId = index;
+    this.actionLoading = false;
+    this.cdRef.detectChanges()
     this.actionLoading = true;
+
   }
+  
+  
+
   getData(value: boolean) {
     this.actionLoading = value;
   }
+
+  
 }

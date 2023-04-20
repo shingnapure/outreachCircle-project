@@ -1,5 +1,4 @@
 .groups {
-  height: calc(100%-1rem);
   background-color: #ffff;
 }
 .heading {
@@ -43,7 +42,7 @@
 .create-group-name {
   color: #008caa;
   font-size: 18px;
-  font-weight: 700px;
+  font-weight: 700;
   line-height: 25px;
 }
 .round {
@@ -79,7 +78,7 @@
   font-size: 18px;
   color: #777;
   line-height: 1.2.1px;
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 
 .search {
@@ -87,7 +86,7 @@
   border-radius: 3px;
   padding: 0.7rem 0 0.7rem 1rem;
   border-radius: 5px;
-  margin-top: 65px;
+  margin-top: 40px;
 }
 .search > div {
   display: flex;
@@ -154,29 +153,48 @@
   font-weight: 400;
   line-height: 22px;
 }
+.outreach-list{
+  position: relative;
+  display: flex;
+  transition: all .5s ease;
+  margin-top: 30px;
+  margin-bottom: 100px;
+
+}
 .group-desc {
-  position: absolute;
-  animation-name: mover;
-  animation:run ease 2.5s;
-  animation-fill-mode: forwards;
-  top: 40.8%;
-  left: 63%;
+  flex-basis: 45%;
+  margin-right: -500px;
+  background-color: #fff;
+  transition: all .3s cubic-bezier(0.35, 0, 0.25, 1);
   
 }
 .group-table {
-  margin-top: 30px;
-  position: relative;
+  flex-basis: 100%;
+  transition: all .5s ease;
 }
-@keyframes run {
-  0%{
-    top: 40.8%;
-    left: 90%;
-  }
-  100%{
-    top: 40.8%;
-    left: 63%;
-  }
+
+.active-item{
+  border:1px solid #008caa;
+  border-right: none;
+  background-color: #f1f9fb;
+  position: sticky;
+  z-index: 11;
+  width: 100.2%;
 }
+
+.active-outreach-list{
+  /* overflow: hidden; */
+  height: 60vh;
+  margin-bottom: 0;
+}
+.active-outreach-list .group-table{
+  flex-basis: 55%;
+}
+
+.active-outreach-list .group-table .group-data-name{
+  display: none;
+}
+
 
 .tooltip {
   position: relative;
@@ -190,12 +208,11 @@
   text-align: center;
   border-radius: 6px;
   padding: 5px 10px;
+  font-size: 14px;
   position: absolute;
   z-index: 1;
   bottom: 100%;
-  left: 50%;
-  margin-left: -87.5px;
-  margin-bottom: 10px;
+  left: 5%;
 }
 
 .tooltip:hover .tooltiptext {

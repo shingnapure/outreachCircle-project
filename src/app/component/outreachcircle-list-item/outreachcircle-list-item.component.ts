@@ -9,7 +9,7 @@ import { outreachcircleitem } from 'src/app/services/interface';
   styleUrls: ['./outreachcircle-list-item.component.css'],
 })
 export class OutreachcircleListItemComponent {
-  constructor(private routes:Router) {}
+  constructor(private routes:Router ) {}
 
   @Input() outreachcircleitem : outreachcircleitem;
 
