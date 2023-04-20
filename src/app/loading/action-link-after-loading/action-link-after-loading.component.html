@@ -45,7 +45,8 @@
             existing action.
           </p>
         </div>
-        <div *ngIf="groupValues.group.actionCount > 0" class="action">
+        <div class="actions-container">
+            <div *ngIf="groupValues.group.actionCount > 0" class="action">
           <div
             *ngFor="let actionval of groupValues.group.actions.items"
             class="action-data"
@@ -71,13 +72,14 @@
               </div>
             </div>
           </div>
-        </div>
+            </div>
 
-        <div class="button">
+            <div class="button">
           <button>
             <img src="../../../assets/images/groups/Shape.svg" alt="" />
             <p>Add Action</p>
           </button>
+            </div>
         </div>
       </mat-tab>
 
@@ -100,27 +102,31 @@
           </p>
         </div>
 
-        <div *ngIf="groupValues.group.aliasCount > 0" class="link">
-          <div
-            *ngFor="let linkVal of groupValues.group.aliases"
-            class="link-data"
-          >
-            <div>
-              <p class="link-name">{{ linkVal.name }}</p>
-              <p class="link-value">App Code : {{ linkVal.value }}</p>
-            </div>
-            <div class="edit-parent">
-              <img src="../../../assets/images/groups/Triple.svg" alt="" />
-            </div>
-          </div>
+        <div class="links-container">
+            <div *ngIf="groupValues.group.aliasCount > 0" class="link">
+                <div
+                  *ngFor="let linkVal of groupValues.group.aliases"
+                  class="link-data"
+                >
+                  <div>
+                    <p class="link-name">{{ linkVal.name }}</p>
+                    <p class="link-value">App Code : {{ linkVal.value }}</p>
+                  </div>
+                  <div class="edit-parent">
+                    <img src="../../../assets/images/groups/Triple.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+      
+              <div class="button">
+                <button>
+                  <img src="../../../assets/images/groups/Link-btn.svg" alt="" />
+                  <p>Add Link</p>
+                </button>
+              </div>
         </div>
+      
 
-        <div class="button">
-          <button>
-            <img src="../../../assets/images/groups/Link-btn.svg" alt="" />
-            <p>Add Link</p>
-          </button>
-        </div>
       </mat-tab>
     </mat-tab-group>
   </div>
