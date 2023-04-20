@@ -29,9 +29,11 @@ import { GroupLoadingComponent } from './loading/group-loading/group-loading.com
 import { ActionLinkLoadingComponent } from './loading/action-link-loading/action-link-loading.component';
 import { ActionLinkAfterLoadingComponent } from './loading/action-link-after-loading/action-link-after-loading.component';
 import {MatTabsModule} from '@angular/material/tabs';
-import { RouterModule } from '@angular/router';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 import { MatDialogModule } from '@angular/material/dialog';
 import { CreateGroupModelComponent } from './component/create-group-model/create-group-model.component';
+import { EditGroupComponent } from './component/edit-group/edit-group.component';
+import { DeleteGroupComponent } from './component/delete-group/delete-group.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +56,8 @@ import { CreateGroupModelComponent } from './component/create-group-model/create
     ActionLinkAfterLoadingComponent,
     GroupLoadingComponent,
     CreateGroupModelComponent,
+    EditGroupComponent,
+    DeleteGroupComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,8 @@ import { CreateGroupModelComponent } from './component/create-group-model/create
     MatMenuModule,
     Ng2SearchPipeModule,
     MatTabsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

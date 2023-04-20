@@ -1,0 +1,55 @@
+.dialog-heading{
+    background-color:#f05c40;
+}
+.dialog-heading>p{
+   color: #ffff;
+   padding: 1.2rem 6rem;
+   font-size: 18px;
+   line-height: 1.2;
+   font-weight: 400;
+}
+.alert{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.delete-action{
+    text-align: center;
+    width: 60%;
+    font-size: 18px;
+    font-family: Nunito-SemiBold;
+    color: #2a2a2a;
+    line-height: 24px;
+    margin: auto;
+
+}
+.dialog-button{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 4rem 1.5rem 4rem;
+}
+.cancel-button{
+    padding: 0.7rem 1.8rem;
+    border: 1px solid #f05c40;
+    border-radius: 4px;
+    color: #ffff;
+    background-color:#f05c40;
+    font-size: 16px;
+    font-weight: 600;
+}
+.cancel-button:hover{
+    cursor: pointer;
+}
+.delete-button{
+    padding: .7rem 1.5rem;
+    border: 1px solid#f05c40;
+    border-radius: 4px;
+    color:#f05c40;
+    background-color:#ffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.delete-button:hover{
+    cursor: pointer;
+}

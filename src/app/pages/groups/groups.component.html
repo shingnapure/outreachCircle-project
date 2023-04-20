@@ -1,5 +1,3 @@
-<!-- <p>groups works!</p>
-<h1>Rss work</h1> -->
 <div class="groups">
   <div class="heading">
     <div>
@@ -22,8 +20,12 @@
     </div>
   </div>
 
+  <div *ngIf="groupLoading">
+    <app-group-loading></app-group-loading>
+  </div>
+
   <div *ngIf="!groupLoading">
-    <div *ngIf="groupData.length != 0">
+    <div *ngIf="groupDataLength > 0">
       <div>
         <p class="group-count" *ngIf="groupData.length === 1">
           {{ groupData.length }} Group
@@ -46,7 +48,7 @@
             <div
               *ngFor="let i of groupData | filter : searchText"
               class="group-data"
-              (click)="handleGroup(i.id)"
+              (click)="handleGroup(i.id, i.name)"
               [ngClass]="{ 'active-item' : individaulGroupId == i.id && actionLoading}"
             >
               <p>{{ i.name }}</p>
@@ -69,7 +71,13 @@
                         class="count-none"
                       />
                     </div>
-                    <p>{{ i.actionCount }}</p>
+                    <p
+                      [ngStyle]="
+                        i.actionCount === 0 ? { color: '#f05c40' } : ''
+                      "
+                    >
+                      {{ i.actionCount }}
+                    </p>
                   </div>
                 </div>
 
@@ -90,7 +98,11 @@
                         class="count-none"
                       />
                     </div>
-                    <p>{{ i.aliasCount }}</p>
+                    <p
+                      [ngStyle]="i.aliasCount === 0 ? { color: '#f05c40' } : ''"
+                    >
+                      {{ i.aliasCount }}
+                    </p>
                   </div>
                 </div>
 
@@ -117,13 +129,14 @@
               [individualId]="individaulGroupId"
               *ngIf="actionLoading"
               (closeModal)="getData($event)"
+              [groupName]="groupName"
             ></app-action-link-after-loading>
           </div>
         </div>
       </div>
     </div>
 
-    <div *ngIf="groupData.length < 1">
+    <div *ngIf="groupDataLength == 0">
       <div class="group-none">
         <img src="../../../assets/images/GroupsLoading.svg" alt="" />
       </div>
@@ -136,9 +149,5 @@
         </p>
       </div>
     </div>
-  </div>
-
-  <div *ngIf="groupLoading">
-    <app-group-loading></app-group-loading>
   </div>
 </div>

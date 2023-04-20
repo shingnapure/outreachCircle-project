@@ -1,6 +1,10 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
+
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Apollo } from 'apollo-angular';
 import { CookieService } from 'ngx-cookie-service';
+import { DeleteGroupComponent } from 'src/app/component/delete-group/delete-group.component';
+import { EditGroupComponent } from 'src/app/component/edit-group/edit-group.component';
 import { individualGroup } from 'src/app/graphql/graphql.query';
 import { DataService } from 'src/app/services/data.service';
 import { IndividualGroupActionLink, groupdata } from 'src/app/services/interface';
@@ -16,11 +20,12 @@ actionLinkLoading:boolean=false
 groupValues:any=[]
 arr=[1,2,3,4,5,6,7,8]
   constructor(
-    private apollo:Apollo,private cookies:CookieService,private service:DataService
+    private apollo:Apollo,private cookies:CookieService,private service:DataService,
+          public dialog: MatDialog
   ) { }
    
   ngOnInit(): void {
-    console.log("individaulGroupId",this.individualId);
+
     this.actionLinkLoading=true
     this.individualGroup()
   }
@@ -42,12 +47,27 @@ arr=[1,2,3,4,5,6,7,8]
     }).subscribe((data) => {
             this.groupValues=data.data
             this.actionLinkLoading=false
-console.log("Group",this.groupValues)
+            console.log("Group",this.groupValues)
             // setTimeout(()=>{
               
             // },100)
             console.log("Ind Grp",this.groupValues);
            
           });
+  }
+
+
+  openDialog() {
+    const dialogRef = this.dialog.open(EditGroupComponent);
+    dialogRef.afterClosed().subscribe(result => {
+    
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  delete(){
+    const dialogRef = this.dialog.open(DeleteGroupComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }

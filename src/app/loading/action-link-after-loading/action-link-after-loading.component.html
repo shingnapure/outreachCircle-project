@@ -18,9 +18,23 @@
           <span class="tooltiptext">More Options</span
           ><img src="../../../assets/images/groups/TripleDot.svg" alt="" />
         </div>
+        <div class="icon">
+            <div class="tooltip"><span class="tooltiptext">Preview action feed</span></div>
+            <div class="tooltip" mat-icon-button [matMenuTriggerFor]="menu"><span class="tooltiptext">More Options</span>
+                <img src="../../../assets/images/groups/Triple.svg" alt="" >
+                <mat-menu #menu="matMenu">
+                    <div class="group-options" mat-button (click)="openDialog()" ><p>Edit</p></div>
+                    <div class="group-options"  ><p>View Supporters</p></div>
+                    <div class="group-options"><p>Preview Actions Feeds</p></div>
+                    <div class="group-options" mat-button (click)="delete()"><p>Delete Group</p></div>
+
+                  </mat-menu>
+            </div>
+            <div class="tooltip" (click)="closeAction(false)"><span class="tooltiptext" >Close group View</span><img src="../../../assets/images/groups/Cross.svg" alt=""> </div>
         <div class="tooltip" (click)="closeAction(false)">
           <span class="tooltiptext">Close group View</span
           ><img src="../../../assets/images/groups/Cross.svg" alt="" />
+
         </div>
       </div>
     </div>

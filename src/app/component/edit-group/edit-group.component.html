@@ -1,0 +1,29 @@
+<mat-dialog-content class="mat-typography">
+<div>
+    <div class="dialog-heading"><p>Enter a unique name for this group</p></div>
+    <div class="dialog-contents">
+        <div class="dialog-group-tag"><p [ngStyle]="gname==='' ? {'color': '#f05c40'} : {'color': '#2493af'}">GROUP NAME</p></div>
+        <div class="dialog-input"><input type="text" value="{{gname}}" [(ngModel)]="gname"  >
+        
+        <img  *ngIf="gname!=='' " src="../../../assets/images/crossIcon.svg" alt="" (click)="removeInputValue()">
+        </div>
+        <div class="horizontal-parent">
+            <div *ngIf="gname!=='' " class="horizontal"></div>
+            <div *ngIf="gname==='' " class="horizontal-none"></div>
+        </div>
+       
+
+        <div class="dialog-important">
+            <p *ngIf="gname!=='' " >Hint: Enter a name between 3 and 50 characters</p>
+            <p *ngIf="gname==='' " [ngStyle]="{'color': '#f05c40'} ">Name is required</p>
+        </div>
+    </div>
+</div>
+<div class="dialog-button">
+    <button mat-button mat-dialog-close class="cancel-button">Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="editGroup()" class="save-button" [disabled]=" gname==='' || gname.length <3 || gname.length >50 ">Save</button>
+</div>
+
+</mat-dialog-content>
+
+

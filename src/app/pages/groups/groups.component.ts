@@ -4,9 +4,9 @@ import { Router } from "@angular/router";
 import { Apollo, gql } from "apollo-angular";
 import { CookieService } from "ngx-cookie-service";
 import { CreateGroupModelComponent } from "src/app/component/create-group-model/create-group-model.component";
-import { allGroup } from "src/app/graphql/graphql.query";
+import { allGroup, outreachByAlias } from "src/app/graphql/graphql.query";
 import { DataService } from "src/app/services/data.service";
-import { Groups } from "src/app/services/interface";
+import { Groups, allGroupData } from "src/app/services/interface";
 
 @Component({
   selector: "app-groups",
@@ -16,10 +16,12 @@ import { Groups } from "src/app/services/interface";
 export class GroupsComponent implements OnInit  {
   href:string=''
   groupID:string=''
+  groupName:string=''
   group: boolean = false;
   actionLoading: boolean = false;
   groupLoading: boolean = false;
-  groupData: any;
+  groupData: any
+  groupDataLength:number=0
   individaulGroupId: string = "";
   searchText:string=''
   aliasID:string=''
@@ -42,201 +44,14 @@ export class GroupsComponent implements OnInit  {
     this.href=(this.router.url).split("/")[2]
     console.log("HREF",this.href);
     this.fetchAlias()
-    // this.groupID=this.href.split("/")[4]
-    //  this.fetchGroups();
+
 
   }
   fetchAlias(){
+    this.groupLoading = true;
     this.apollo
     .query<any>({
-      query: gql`query outreachCircleByAlias($alias: String!) {
-        outreachCircleByAlias(alias: $alias) {
-          id
-          name
-          industry
-          category
-          city
-          state
-          country
-          currentAdminInfo {
-            hasReadOnlyAccessToOutreachCircle
-            __typename
-          }
-          keyDates {
-            id
-            name
-            date
-            isApplicable
-            isSystemAdded
-            __typename
-          }
-          status {
-            createdAndActivate
-            setup {
-              isAudienceCreated
-              isActionCreated
-              hasSupporter
-              __typename
-            }
-            __typename
-          }
-          logo {
-            id
-            url
-            fileName
-            fileSize
-            created
-            __typename
-          }
-          zip
-          code {
-            id
-            value
-            isCode
-            isRapidOnboardingEnabled
-            languagePreference
-            isAppOnly
-            shortURL
-            __typename
-          }
-          phoneNumber
-          candidate {
-            id
-            enabled
-            firstName
-            lastName
-            image {
-              id
-              url
-              __typename
-            }
-            __typename
-          }
-          introduction
-          disclaimer
-          admins {
-            id
-            created
-            userRole
-            email
-            joinedOn
-            isEmailBounced
-            __typename
-          }
-          activeAdminCount
-          currentAdminInfo {
-            id
-            isAddedByOrganization
-            isAddedByOutreachCircle
-            hasReadOnlyAccessToOutreachCircle
-            __typename
-          }
-          referredBy
-          isPublic
-          audience {
-            id
-            __typename
-          }
-          plan
-          product
-          productPlanInfo {
-            canChangeVisibility
-            canIntegrateVAN
-            hasOneWayVANIntegration
-            hasTwoWayVANIntegration
-            canCreateSurveys
-            canCustomizeActionNotification
-            canGenerateReports
-            canScheduleActions
-            canImportVoterFile
-            canRemoveBranding
-            canAddUniqueTrackingLinks
-            voterFileLimit
-            uniqueTrackingLinksLimit
-            canCreateAliasNameOnReminders
-            invitedSupportersLimit
-            canFilterVoter
-            canTextAList
-            canIntegrateEveryAction
-            canCreateGroup
-            canIntegratePhone2ActionForm
-            canCreateSupporterForms
-            canIntegrateNationBuilder
-            canIntegrateFacebookPixel
-            canIntegratePDI
-            canLinkActionTags
-            canCreateP2PAction
-            canCreateSearchAndSurveyAction
-            canAssignSupportersToAnyAction
-            canIntegrateSalesforce
-            canIntegrateGoogleBigQuery
-            canCreateGrassRootOrganizingAction
-            canCreateGRORelationalAction
-            canIntegrateTCR
-            __typename
-          }
-          trialDaysLeft
-          supporterCount
-          supporting
-          supporterReplyToEmail
-          aliasCount
-          actionCount
-          groupsCount
-          additionalDetails {
-            allowCampaigns
-            supporterSettings {
-              supporterAutoEmailsFromName
-              __typename
-            }
-            whileLabelInfo {
-              isWhiteLabeled
-              appName
-              appLogoURL
-              isWhiteLabeledOrg
-              __typename
-            }
-            headquarterInfo {
-              latitude
-              longitude
-              __typename
-            }
-            p2pConfig {
-              isP2PActionEnabled
-              isA2P10DLCRegistrationComplete
-              architecture
-              __typename
-            }
-            canIntegrateSalesforce
-            specialActionsAllowed
-            __typename
-          }
-          facebookPixelCode
-          integrations {
-            aggregateTotal
-            items {
-              type
-              __typename
-            }
-            __typename
-          }
-          tags {
-            total
-            __typename
-          }
-          currentAdminInfo {
-            id
-            isAddedByOrganization
-            isAddedByOutreachCircle
-            hasReadOnlyAccessToOutreachCircle
-            __typename
-          }
-          blockedDomains
-          created
-          hasAnyTagBeenApplied
-          __typename
-        }
-      }
-    `,
+      query: outreachByAlias,
       variables:{
          alias: this.href
       },
@@ -247,12 +62,10 @@ export class GroupsComponent implements OnInit  {
     .subscribe((data) => {
       this.aliasID=data.data.outreachCircleByAlias.id
       this.fetchGroups()
-       console.log("Alias",data.data.outreachCircleByAlias.id);
        
     });
   }
   fetchGroups() {
-    this.groupLoading = true;
 
     this.apollo
       .query<Groups>({
@@ -275,14 +88,21 @@ export class GroupsComponent implements OnInit  {
         },
       })
       .subscribe((data) => {
+       
         this.groupData = data.data.getGroupsByOutreachCircle.items;
-        setTimeout(()=>{
-          this.groupLoading = false;
-        },1000)
-        console.log("All Groups",this.groupData)
+        this.groupDataLength=this.groupData.length
+        console.log("data",this.groupData,this.groupDataLength);
+        this.groupLoading = false;
+
+      },(err)=>{
+        console.log("Err",err);
+        
       });
   }
-  handleGroup(index: string) {
+
+
+  handleGroup(index: string,groupname:string) {
+    this.service.editGroup(index,groupname)
     this.individaulGroupId = index;
     this.actionLoading = false;
     this.cdRef.detectChanges()
