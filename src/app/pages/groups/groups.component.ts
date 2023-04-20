@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component,  OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component,   OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 import { Apollo, gql } from "apollo-angular";
@@ -13,7 +13,7 @@ import { Groups, allGroupData } from "src/app/services/interface";
   templateUrl: "./groups.component.html",
   styleUrls: ["./groups.component.css"],
 })
-export class GroupsComponent implements OnInit  {
+export class GroupsComponent implements OnInit   {
   href:string=''
   groupID:string=''
   groupName:string=''
@@ -25,6 +25,7 @@ export class GroupsComponent implements OnInit  {
   individaulGroupId: string = "";
   searchText:string=''
   aliasID:string=''
+
   constructor(
     private apollo: Apollo,
     private service: DataService,
@@ -66,7 +67,6 @@ export class GroupsComponent implements OnInit  {
     });
   }
   fetchGroups() {
-
     this.apollo
       .query<Groups>({
         query: allGroup,
@@ -116,5 +116,6 @@ export class GroupsComponent implements OnInit  {
     this.actionLoading = value;
   }
 
+  
   
 }

@@ -120,6 +120,10 @@
   height: 50px;
   padding: 0 1.5rem 0 1.5rem;
 }
+.group-data:last-child{
+  border-bottom: 1px solid #eaeaea;
+}
+
 .group-data:hover {
   cursor: pointer;
 }
@@ -181,7 +185,9 @@
   z-index: 11;
   width: 100.2%;
 }
-
+.active-item.group-data:last-child{
+  border-bottom: 1px solid #008caa;
+}
 .active-outreach-list{
   /* overflow: hidden; */
   height: 60vh;

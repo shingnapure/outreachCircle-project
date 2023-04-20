@@ -1,84 +1,70 @@
-<!-- <div class="create-group-container">
-  <div class="header-group-model">
-    <h1>Enter a unique name for this group</h1>
-  </div>
-  <div class="group-model-body">
-    <div class="form-control-input">
-      <label [ngStyle]="name && name.length<3 ? {'color': '#f05c40'} : {'color': '#2493af'}">group name</label>
-      <div class="input-text">
-        <input
-          type="text"
-          placeholder="Type a name that is specific and descriptive"
-          required
-          autocomplete="off"
-          [(ngModel)]="name"
-        />
-        <img *ngIf="name && name.length > 0" src="../../../assets/images/crossIcon.svg" (click)="remove()"/>
-      </div>
-
-      <div  *ngIf="name!=='' "  class="input-bottom-line"></div>
-      <div  *ngIf=" name.length<3 "  class="input-bottom-line-none"></div>
-
-      <small *ngIf="name!=='' ">Hint: Enter a name between 3 and 50 characters
-        </small>
-        <small *ngIf="name==='' " [ngStyle]="{'color': '#f05c40'} ">Name is required
-        </small>
+<div class="create-group-container">
+  <div class="dialog-heading"><p>Enter a unique name for this group</p></div>
+  <div class="dialog-contents">
+    <div class="dialog-group-tag">
+      <p
+        [ngStyle]="
+          errorMsg !== ''
+            ? { color: '#f05c40' }
+            : { color: '#008caa' }
+        "
+      >
+        GROUP NAME
+      </p>
     </div>
-    <div mat-dialog-actions class="create-groups-btns">
-      <button mat-button (click)="handleClose()">Cancel</button>
-      <button mat-button  
-      class="create-btn"
-        [disabled]="name==='' || name.length < 3 || name.length >50" 
-        (click)="createGroup()"
-      >Continue</button>
+    <div class="dialog-input">
+      <input
+        type="text"
+        placeholder="Type a name that is specific and descriptive"
+        required
+        autocomplete="off"
+        [(ngModel)]="name"
+      />
+
+      <img
+        *ngIf="name !== ''"
+        src="../../../assets/images/crossIcon.svg"
+        alt=""
+        (click)="remove()"
+      />
     </div>
-  </div>
-</div> -->
+    <div class="horizontal-parent">
 
+      <div *ngIf="errorMsg == ''" class="horizontal"></div>
+      <div *ngIf="errorMsg != ''" class="horizontal-none"></div>
+    </div>
 
-
-<mat-dialog-content class="mat-typography">
-  <div>
-      <div class="dialog-heading"><p>Enter a unique name for this group</p></div>
-      <div class="dialog-contents">
-          <div class="dialog-group-tag"><p [ngStyle]="(name.length<3) || (errorMsg!=='')? {'color': '#f05c40'} : {'color': '#008caa'}">GROUP NAME</p></div>
-          <div class="dialog-input"><input type="text"  placeholder="Type a name that is specific and descriptive"
-            required
-            autocomplete="off" [(ngModel)]="name"  >
-          
-          <img  *ngIf="name!=='' " src="../../../assets/images/crossIcon.svg" alt="" (click)="remove()">
-          </div>
-
-          <div class="horizontal-parent">
-             <div *ngIf="name.length>=3" class="horizontal"></div>
-             <div *ngIf="name.length<3 " class="horizontal-none"></div>
-          </div>
-  
-          <div class="dialog-important">
-              <p *ngIf="name!=='' " >Hint: Enter a name between 3 and 50 characters</p>
-              <p *ngIf="name==='' " [ngStyle]="{'color': '#f05c40'} ">Name is required</p>
-              <p  *ngIf="errorMsg!=='' " [ngStyle]="{'color': '#f05c40'} ">{{errorMsg}}</p>
-          </div>
-      </div>
+    <div class="dialog-important">
+      <small *ngIf="name == null || name && !errorMsg">Hint: Enter a name between 3 and 50 characters</small>
+      <small *ngIf="name == '' && isclick " [ngStyle]="{ color: '#f05c40' }">
+        Name is required
+      </small>
+      <small *ngIf="errorMsg !== '' && name != ''" [ngStyle]="{ color: '#f05c40' }">
+        {{ errorMsg }}
+      </small>
+    </div>
   </div>
   <div class="dialog-button">
-      <button mat-button mat-dialog-close class="cancel-button">Cancel</button>
-      <div *ngIf="loader">
-        <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="save-button" (click)="createGroup()" [disabled]="name.length<3|| (name.length >50)">
-          <mat-spinner strokeWidth=2 diameter=30> </mat-spinner>
-          </button>
-      </div>
-      <div *ngIf="!loader">
-        <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="save-button" (click)="createGroup()" [disabled]="name.length<3|| (name.length >50)">
-          Continue
-          </button>
-      </div>
-      
-     
-
+    <button mat-button mat-dialog-close class="cancel-button">Cancel</button>
+    <div *ngIf="loader">
+      <button
+        mat-button
+        class="save-button"
+        (click)="createGroup()"
+        [disabled]="name && (name.length < 3 || name.length > 50)"
+      >
+        <mat-spinner strokeWidth="3" diameter="30"> </mat-spinner>
+      </button>
+    </div>
+    <div *ngIf="!loader">
+      <button
+        mat-button
+        class="save-button"
+        (click)="createGroup()"
+        [disabled]="name && (name.length < 3 || name.length > 50 || errorMsg != '')"
+      >
+        Continue
+      </button>
+    </div>
   </div>
-  
-  </mat-dialog-content>
-  
-  
-  
+</div>
