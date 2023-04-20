@@ -1,4 +1,4 @@
-.create-group-container {
+/* .create-group-container {
   width: 448px;
   border-radius: 5px;
   box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2),
@@ -30,7 +30,7 @@ label {
   font-weight: 400;
   font-size: 12px;
   line-height: 10px;
-  color: #777;
+  color: #2493af;
 }
 
 input {
@@ -69,7 +69,12 @@ button {
   margin: auto;
   animation: line 0.2s ease-out forwards;
 }
-
+.form-control-input:focus-within .input-bottom-line-none{
+  background-color: #f05c40;
+  height: 2px;
+  margin: auto;
+  animation: line 0.2s ease-out forwards;
+}
 .input-text {
   display: flex;
   justify-content: space-between;
@@ -84,4 +89,117 @@ button {
 small{
   font-size: 12px;
   color: #777;
+}
+.create-btn:disabled{
+  background-color: #0000001F;
+  border: none;
+  color: grey;
+} */
+
+
+
+.dialog-heading{
+  background-color:#2a2a2a;
+}
+/* .dialog-contents{
+  padding-right: 1.2rem;
+} */
+.dialog-heading>p{
+ color: #ffff;
+ padding: 1.2rem 6rem;
+ font-size: 18px;
+ line-height: 1.2;
+ font-weight: 400;
+}
+.dialog-group-tag{
+font-size: 13px;
+font-weight: 400;
+line-height: 18px;
+letter-spacing: 0px;
+color:  #777777;
+padding-top: .5rem;
+padding-left: 1.2rem;
+}
+.dialog-input{
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+
+}
+.dialog-input>input{
+  height: 22px;
+  border:none;
+  outline: none;
+  color: #777777;
+font-size: 16px;
+line-height: 22px;
+
+}
+img:hover{
+  cursor: pointer;
+}
+.horizontal-parent{
+  display: flex;
+  width: 90%;
+  margin: auto;
+  margin-top: 15px;
+}
+.horizontal {
+  background-color: teal; 
+  height: 2px;
+  animation: line 0.2s ease-out forwards;
+}
+ .horizontal-none{
+  background-color: #f05c40;
+  height: 2px;
+  animation: line 0.2s ease-out forwards;
+}
+.dialog-important>p{
+  padding: .5rem 1.2rem 0 1.2rem;
+  color:  #777777;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.125;
+  letter-spacing: normal;
+
+}
+.dialog-button{
+  display: flex;
+  justify-content: flex-end;
+  padding: 2rem 1.2rem 1.2rem 0;
+  gap: 1rem;
+}
+.cancel-button{
+  padding: 0.7rem 2.5rem;
+  border: 1px solid #2493af;
+  border-radius: 4px;
+  color:#008caa;
+  background-color: #ffff;
+  font-size: 16px;
+  font-weight: 600;
+}
+.cancel-button:hover{
+  background-color:  #f2f9fb;
+  cursor: pointer;
+}
+.save-button{
+  padding: .7rem 2.5rem;
+  border: 1px solid #2493af;
+  border-radius: 2px;
+  color:#ffff;
+  background-color:#008caa;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+
+}
+.save-button:disabled{
+background-color: #0000001F;
+border: none;
+}
+
+::ng-deep .mat-mdc-progress-spinner {
+  --mdc-circular-progress-active-indicator-color: red;
 }

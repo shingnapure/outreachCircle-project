@@ -252,3 +252,28 @@
     
     background-color: #008caa;
 }
+
+
+
+.group-options{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 40px;
+  border-bottom: 1px solid #d6d6d6;
+}
+.group-options:hover{
+  cursor: pointer;
+  background-color: rgba(0,0,0,.04);
+}
+.group-options>p{
+  padding: 0 1rem 0 1rem;
+    font-weight: 600;
+    font-size: 14px;
+    color: black!important;
+  }
+  
+::ng-deep .mat-menu-content:not(:empty) {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}

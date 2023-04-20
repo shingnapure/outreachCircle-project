@@ -124,3 +124,10 @@ export interface groupdata{
     }
 }
 
+export interface allGroupData{
+    id:string
+    name: string
+    supporterCount: number
+    actionCount: number
+    aliasCount: number
+}

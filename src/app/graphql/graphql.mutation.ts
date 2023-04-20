@@ -44,3 +44,20 @@ mutation createGroup($input: CreateGroupInput!) {
     __typename
   }
 }`
+
+
+export const EditGroup=gql`
+mutation updateGroup($input: UpdateGroupInput!) {
+  updateGroup(input: $input) {
+    id
+    name
+    __typename
+  }
+}
+`
+export const DeleteGroup=gql`
+mutation deleteGroup($id: ID!) {
+  deleteGroup(id: $id)
+}
+
+`
