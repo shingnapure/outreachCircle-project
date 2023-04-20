@@ -5,21 +5,15 @@
         <img src="../../../assets/images/Black.svg" alt="" />
         <p>Supporters ({{ groupValues.group.supporterCount }})</p>
       </div>
-      <div class="icon">
-        <div class="tooltip">
-          <span class="tooltiptext">Preview action feed</span>
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/159/159078.png"
-            width="15px"
-            height="15px"
-          />
-        </div>
-        <div class="tooltip">
-          <span class="tooltiptext">More Options</span
-          ><img src="../../../assets/images/groups/TripleDot.svg" alt="" />
-        </div>
         <div class="icon">
-            <div class="tooltip"><span class="tooltiptext">Preview action feed</span></div>
+            <div class="tooltip">
+              <span class="tooltiptext">Preview action feed</span>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/159/159078.png"
+                width="15px"
+                height="15px"
+              />
+          </div>
             <div class="tooltip" mat-icon-button [matMenuTriggerFor]="menu"><span class="tooltiptext">More Options</span>
                 <img src="../../../assets/images/groups/Triple.svg" alt="" >
                 <mat-menu #menu="matMenu">
@@ -30,7 +24,6 @@
 
                   </mat-menu>
             </div>
-            <div class="tooltip" (click)="closeAction(false)"><span class="tooltiptext" >Close group View</span><img src="../../../assets/images/groups/Cross.svg" alt=""> </div>
         <div class="tooltip" (click)="closeAction(false)">
           <span class="tooltiptext">Close group View</span
           ><img src="../../../assets/images/groups/Cross.svg" alt="" />
