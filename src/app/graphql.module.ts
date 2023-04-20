@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { APOLLO_OPTIONS } from 'apollo-angular';
-import { ApolloClientOptions, DefaultOptions, InMemoryCache } from '@apollo/client/core';
+import {
+  ApolloClientOptions,
+  DefaultOptions,
+  InMemoryCache,
+} from '@apollo/client/core';
 import { HttpLink } from 'apollo-angular/http';
 
 const uri = 'https://client.acarahealthcare.in/graphql'; // <-- add the URL of the GraphQL server here
@@ -14,11 +18,11 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
       fetchPolicy: 'no-cache',
       errorPolicy: 'all',
     },
-  }
+  };
   return {
     link: httpLink.create({ uri }),
     cache: new InMemoryCache(),
-    defaultOptions : defaultOptions
+    defaultOptions: defaultOptions,
   };
 }
 
