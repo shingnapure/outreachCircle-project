@@ -15,7 +15,7 @@ import { DataService } from 'src/app/services/data.service';
 export class CreateGroupModelComponent implements OnInit  {
 href:string=''
 aliasID:string=''
-name : string='' ;
+name : string= null ;
 errorMsg : string='' ;
 loader:boolean=false
 
@@ -29,6 +29,7 @@ loader:boolean=false
     this.href=(this.router.url).split("/")[2]
     this.fetchAlias()
   }
+  
   
   handleClose(){
     this.dialogRef.close()
@@ -48,6 +49,7 @@ loader:boolean=false
       this.aliasID=data.data.outreachCircleByAlias.id
     });
   }
+
   createGroup(){
     this.loader=true
     this.apollo.mutate<any>({
@@ -66,17 +68,20 @@ loader:boolean=false
       (data) => {
     this.loader=false
       
-        console.log("data created",data);
+        this.handleClose()
+        console.log(data)
   
       },(err)=>{
         this.errorMsg=err.message
+        this.loader = false
         console.log("Err msg",this.errorMsg);
         
       }
     )
   }
-  
+  isclick=false;
   remove(){
     this.name=''
+    this.isclick = true;
   }
 }

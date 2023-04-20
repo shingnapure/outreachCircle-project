@@ -14,7 +14,7 @@ import { GraphQLModule } from './graphql.module';
 import { UserComponent } from './pages/user/user.component';
 import { AllOutreachCircleComponent } from './pages/all-outreach-circle/all-outreach-circle.component';
 import { LoginFormComponent } from './component/login-form/login-form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { SkeletonComponent } from './skeleton/skeleton.component';
 import { CookieService } from 'ngx-cookie-service';
@@ -71,7 +71,8 @@ import { DeleteGroupComponent } from './component/delete-group/delete-group.comp
     Ng2SearchPipeModule,
     MatTabsModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ReactiveFormsModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
